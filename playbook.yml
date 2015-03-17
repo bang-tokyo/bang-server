@@ -1,0 +1,29 @@
+- hosts: dev
+  sudo: yes
+  vars:
+    httpd_port: 80
+    mysql_port: 3306
+  tasks:
+    - name: install apache
+      yum: name=httpd enablerepo=remi,epel,rpmforge state=present
+
+    - name: start httpd
+      service: name=httpd state=started enabled=yes
+
+    - name: allow port 80
+    lineinfile: dest=/etc/sysconfig/iptables regexp="{{ httpd_port }}" line="-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport {{ httpd_port }} -j ACCEPT" insertbefore="^# add end" state=present
+    notify: restart iptables
+
+    - name: install mysql
+    yum: name=mysql-server state=latest
+    notify: restart mysql
+
+    handlers:
+    - name: restart apache
+    service: name=apache state=restarted
+
+    - name: restart iptables
+    service: name=iptables state=restarted
+
+    - name: restart mysqld
+    service: name=mysqld state=restarted
