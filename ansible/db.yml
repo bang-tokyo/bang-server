@@ -1,0 +1,6 @@
+- hosts: server
+  sudo: yes
+  vars:
+    mysql_port: 3306
+  roles:
+    - db

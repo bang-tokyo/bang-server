@@ -1,0 +1,7 @@
+---
+  # Unix user name to deploy as
+deploy: dev
+
+# Ruby version to install
+ruby_version: 2.1.5
+rbenv_makeopts: ""

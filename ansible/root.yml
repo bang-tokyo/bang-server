@@ -1,0 +1,4 @@
+---
+# file: root.yml
+- include: app.yml
+- include: db.yml

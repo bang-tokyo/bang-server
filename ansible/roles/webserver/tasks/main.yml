@@ -1,0 +1,6 @@
+---
+# Apache
+- name: install apache
+  yum: name=httpd state=present #state=absentでアンインストール
+- name: start httpd
+  service: name=httpd state=started enabled=yes

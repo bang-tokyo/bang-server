@@ -1,0 +1,18 @@
+---
+mysql_daemon: mysqld
+mysql_config_file: /etc/my.cnf
+__mysql_packages:
+  - mysql
+  - mysql-server
+  - MySQL-python
+mysql_socket: /var/lib/mysql/mysql.sock
+mysql_root_password: admin
+mysql_databases:
+  - name: bang
+    encoding: latin1
+    collation: latin1_general_ci
+mysql_users:
+  - name: dev
+    host: "%"
+    password: admin
+    priv: "bang.*:ALL

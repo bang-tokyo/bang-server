@@ -1,0 +1,55 @@
+- name: install git
+  yum: name=git state=present
+
+- name: install epel
+  yum: name=epel-release state=present
+
+- name: install node.js
+  yum: name=nodejs state=present
+
+- name: install npm
+  yum: name=npm state=present
+
+- name: install ImageMagick
+  yum: name=ImageMagick state=present
+
+# - name: install libxml
+#   yum: name=libxml2-devel state=present
+
+# - name: install libxslt
+#   yum: name=libxslt-devel state=present
+
+- name: install ruby
+  yum: name=ruby state=present
+
+- name: check out rbenv
+  git: repo={{ rbenv.repo }} dest=./.rbenv accept_hostkey=yes
+
+- name: add .rbenv/bin to $PATH
+  lineinfile: dest=.bash_profile line=export\ PATH=".rbenv/bin:$PATH" regexp=PATH.*rbenv create=yes
+
+- name: add rbenv init
+  lineinfile: dest=.bash_profile line=eval\ \"$(rbenv\ init\ -)\" regexp=eval.*rbenv create=yes
+
+- name: checkout ruby-build as rbenv plugin
+  git: repo={{ rubybuild.repo }} dest=.rbenv/plugins/ruby-build accept_hostkey=yes
+
+- name: check whether a specific version of ruby is installed or not
+  shell: .rbenv/bin/rbenv versions | grep {{ ruby.version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '
+  register: rbenv_version
+
+- name: install ruby with rbenv
+  command: rbenv install {{ ruby.version }}
+  #when: rbenv_version.stdout != '2.1.5'
+
+- name: set ruby version global
+  command: .rbenv/bin/rbenv global {{ ruby.version }}
+
+- name: update gems
+  command: .rbenv/shims/gem update --system
+
+- name: install bundler gem
+  command: .rbenv/shims/gem install bundler --no-ri --no-rdoc
+
+- name: rbenv rehash
+  command: .rbenv/bin/rbenv rehash
