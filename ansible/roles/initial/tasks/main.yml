@@ -1,15 +1,16 @@
 ---
-# repository
-# EPEL/Remi/RPMforgeをインストールする
-# - yum: name={{item}}
-#   with_items:
-#     - http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
-#     - http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-#     - http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+# install necessary modules
+- name: install git
+  yum: name=git state=present
 
-# 明示的に指定したいのでenabledは全て0にする
-# - replace: dest=/etc/yum.repos.d/{{item}} regexp="enabled *= *1" replace="enabled=0"
-#   with_items:
-#     - epel.repo
-#     - rpmforge.repo
-#     - remi.repo
+- name: install epel
+  yum: name=epel-release state=present
+
+- name: install node.js
+  yum: name=nodejs state=present
+
+- name: install npm
+  yum: name=npm state=present
+
+- name: install ImageMagick
+  yum: name=ImageMagick state=present
