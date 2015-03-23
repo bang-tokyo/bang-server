@@ -1,4 +1,16 @@
 ---
+- name: Check if selinux is installed
+  command: getenforce
+  register: command_result
+  ignore_errors: True
+
+- name: Install libselinux-python
+  yum: name={{ item }}
+  with_items: 
+    - epel-release
+    - libselinux-python
+  when: command_result|success and command_result.stdout != 'Disabled'
+
 - name: install ruby
   yum: name=ruby state=absent
  
@@ -20,12 +32,6 @@
 - name: check whether a specific version of ruby is installed or not
   shell: /usr/local/rbenv/bin/rbenv versions | grep {{ ruby.version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '
   register: rbenv_version
-
-# - name: set rbenv PATH
-#   shell: echo 'export PATH="/usr/local/rbenv/bin:$PATH"' >> ~/.bash_profile
-
-# - name: apply bash_profile
-#   shell: source ~/.bash_profile
  
 - name: install ruby with rbenv
   command: /usr/local/rbenv/bin/rbenv install {{ ruby.version }}
