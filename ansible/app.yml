@@ -1,7 +1,9 @@
 - hosts: server
+  remote_user: vagrant
   sudo: yes
   vars:
     httpd_port: 80
+    user: vagrant
     rbenv:
       repo: git://github.com/sstephenson/rbenv.git
     rubybuild:
