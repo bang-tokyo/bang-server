@@ -1,5 +1,5 @@
 ---
 # file: root.yml
 - include: common.yml
-- include: app.yml
+- include: web.yml
 - include: db.yml
