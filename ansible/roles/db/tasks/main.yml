@@ -1,7 +1,19 @@
 ---
 # mysql
-- name: be sure mysql-server is installed
-  yum: name=mysql-server state=present
+- name: download mysql 5.6
+  shell: yum -y install http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
+  ignore_errors: True
 
-- name: be sure mysqld is running and enabled
+- name: install mysql 5.6
+  shell: yum -y install mysql-community-server
+
+- name: run mysqld
   service: name=mysqld state=running enabled=yes
+
+- name: create root user Password
+  # passwd 'bang'
+  # python -c 'import crypt; print crypt.crypt("bang", "$1$SomeSalt$")'
+  shell: /usr/bin/mysqladmin -u root password $1D8xSupsgnPs
+
+- name: set up mysql_secure_installation
+  shell: /usr/bin/mysql_secure_installation
