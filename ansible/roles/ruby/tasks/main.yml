@@ -31,7 +31,7 @@
   sudo: no
  
 - name: install ruby-build
-  shell: /home/{{ user.name }}/.rbenv/plugins/ruby-build/install.sh
+  shell: /home/bang/.rbenv/plugins/ruby-build/install.sh
  
 - name: check whether a specific version of ruby is installed or not
   shell: ~/.rbenv/bin/rbenv versions | grep {{ ruby.version }} | tr '*' ' ' | sed -e 's/\s\+//' | cut -f1 -d' '

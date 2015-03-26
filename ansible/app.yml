@@ -1,13 +1,8 @@
 - hosts: server
-  remote_user: vagrant
+  remote_user: bang
   sudo: yes
   vars:
     httpd_port: 80
-    user:
-      name: bang
-      # password"bang"ハッシュ値
-      # python -c 'import crypt; print crypt.crypt("bang", "$1$SomeSalt$")'
-      password: $1D8xSupsgnPs
     rbenv:
       repo: git://github.com/sstephenson/rbenv.git
     rubybuild:
@@ -15,6 +10,5 @@
     ruby:
       version: 2.1.5
   roles:
-    - initial
     - webserver
     - ruby
