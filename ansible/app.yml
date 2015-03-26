@@ -3,7 +3,11 @@
   sudo: yes
   vars:
     httpd_port: 80
-    user: vagrant
+    user:
+      name: bang
+      # password"bang"ハッシュ値
+      # python -c 'import crypt; print crypt.crypt("bang", "$1$SomeSalt$")'
+      password: $1D8xSupsgnPs
     rbenv:
       repo: git://github.com/sstephenson/rbenv.git
     rubybuild:

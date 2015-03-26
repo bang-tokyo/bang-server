@@ -6,11 +6,32 @@
 - name: install epel
   yum: name=epel-release state=present
 
-- name: install node.js
-  yum: name=nodejs state=present
+- name: install necessary modules
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
 
-- name: install npm
-  yum: name=npm state=present
+# add application user
+- name: add application group
+  group: name={{ user.name }} state=present
 
-- name: install ImageMagick
-  yum: name=ImageMagick state=present
+- name: add application user
+  user:
+    name={{ user.name }}
+    password={{ user.password }}
+    group={{ user.name }}
+    home=/home/{{ user.name }}
+    state=present
+
+- name: register application user to sudoers
+  lineinfile: >-
+    dest='/etc/sudoers'
+    backup=yes
+    state=present
+    regexp='^"{{ user.name }}"'
+    line='"{{ user.name }}" ALL=(ALL) NOPASSWD: ALL'
+
+- name: register public key
+  # ローカルマシンのpublick keyを作成したユーザーに配布
+  # TODO: stateとproductionの時、秘密鍵公開鍵を共有するか。
+  authorized_key: user={{ user.name }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
