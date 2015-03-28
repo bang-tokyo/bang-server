@@ -2,6 +2,13 @@
   remote_user: bang
   sudo: yes
   vars:
-    mysql_port: 3306
+    root_user:
+      password: bang
+    write_user:
+      name: bang_w
+      password: bang_w
+    read_user:
+      name: bang_r
+      password: bang_r
   roles:
     - db
