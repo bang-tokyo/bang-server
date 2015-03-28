@@ -31,8 +31,6 @@
     name={{ write_user.name }}
     password={{ write_user.password }}
     priv=*.*:ALL
-    login_user=root
-    login_password={{ root_user.password }}
     state=present
 
 - name: create app read users
@@ -40,8 +38,6 @@
     name={{ read_user.name }}
     password={{ read_user.password }}
     priv=*.*:ALL
-    login_user=root
-    login_password={{ root_user.password }}
     state=present
 
 - name: set my.conf to db server
