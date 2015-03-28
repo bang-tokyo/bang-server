@@ -9,6 +9,12 @@
       repo: git://github.com/sstephenson/ruby-build.git
     ruby:
       version: 2.1.5
+    app:
+      dir: ~/bang-server
+      src: ~/bang-server/app
+      dest: ~/app
+      repo: https://github.com/shiruco/bang-server.git
   roles:
     - webserver
     - ruby
+    - app
