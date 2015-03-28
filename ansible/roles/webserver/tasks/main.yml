@@ -4,6 +4,7 @@
   with_items:
     - nodejs
     - npm
+
 - name: install ImageMagick
   yum: name=ImageMagick state=present
 
