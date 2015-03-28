@@ -15,5 +15,5 @@
   # python -c 'import crypt; print crypt.crypt("bang", "$1$SomeSalt$")'
   shell: /usr/bin/mysqladmin -u root password $1D8xSupsgnPs
 
-- name: set up mysql_secure_installation
-  shell: /usr/bin/mysql_secure_installation
+# - name: set up mysql_secure_installation
+#   shell: /usr/bin/mysql_secure_installation
