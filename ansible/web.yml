@@ -1,9 +1,8 @@
 - hosts: server
-  remote_user: vagrant
+  remote_user: bang
   sudo: yes
   vars:
     httpd_port: 80
-    user: vagrant
     rbenv:
       repo: git://github.com/sstephenson/rbenv.git
     rubybuild:
@@ -11,6 +10,5 @@
     ruby:
       version: 2.1.5
   roles:
-    - initial
     - webserver
     - ruby

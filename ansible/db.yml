@@ -1,5 +1,5 @@
-- hosts: server
-  remote_user: vagrant
+- hosts: db
+  remote_user: bang
   sudo: yes
   vars:
     mysql_port: 3306

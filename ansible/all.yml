@@ -1,0 +1,5 @@
+---
+# file: all.yml
+- include: common.yml
+- include: web.yml
+- include: db.yml
