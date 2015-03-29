@@ -16,8 +16,8 @@
 - name: install mysql relational packages
   yum: name={{ item }} state=installed
   with_items:
+    - mysql-devel
     - MySQL-python
-  when: which_mysql.rc == 1
 
 - name: run mysqld
   service: name=mysqld state=running enabled=yes
@@ -31,17 +31,13 @@
     name={{ write_user.name }}
     password={{ write_user.password }}
     priv=*.*:ALL
-    login_user=root
-    login_password={{ root_user.password }}
     state=present
 
 - name: create app read users
   mysql_user:
     name={{ read_user.name }}
     password={{ read_user.password }}
-    priv=*.*:ALL
-    login_user=root
-    login_password={{ root_user.password }}
+    priv=*.*:SELECT
     state=present
 
 - name: set my.conf to db server

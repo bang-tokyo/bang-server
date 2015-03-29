@@ -79,7 +79,13 @@
   sudo: no
 
 - name: install libxslt2-devel
-  shell: yum -y install libxml2 libxslt libxml2-devel libxslt-devel
+  yum: name={{ item }} state=present
+  with_items:
+    - libxml2
+    - libxslt
+    - libxml2-devel
+    - libxslt-devel
+    - readline-devel
 
 - name: install nokogiri
   command: ~/.rbenv/bin/rbenv exec gem install nokogiri -- --use-system-libraries
