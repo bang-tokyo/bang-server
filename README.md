@@ -25,7 +25,7 @@
   $ cd bang-server/ansible
   $ ansible-playbook -i develop all.yml
   ```
-5. 開発環境のファイアーフォールをOFF(仮対応)
+5. 開発環境のファイアーウォールをOFF(仮対応)
 
   ```
   $ ssh bang@192.168.33.10
