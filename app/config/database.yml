@@ -22,14 +22,14 @@ default: &default
 development:
   <<: *default
   reconnect: false
-  database: app_development
+  database: bang_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: app_test
+  database: bang_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -52,6 +52,6 @@ test:
 #
 production:
   <<: *default
-  database: app_production
+  database: bang_production
   username: bang_w
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
