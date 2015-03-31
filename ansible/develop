@@ -1,5 +1,5 @@
 [server]
-192.168.33.10
+192.168.33.10 ansible_ssh_user=vagrant
 
 [db]
-192.168.33.10
+192.168.33.10 ansible_ssh_user=vagrant
