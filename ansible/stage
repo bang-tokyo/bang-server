@@ -1,5 +1,5 @@
 [server]
-49.212.194.230 ansible_ssh_user=root
+49.212.194.230
 
 [db]
-49.212.194.230 ansible_ssh_user=root
+49.212.194.230
