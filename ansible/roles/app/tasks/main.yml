@@ -1,0 +1,40 @@
+---
+# install app
+- name: check app has checked out.
+  stat: path={{ app.dir }}
+  register: app_dir
+  sudo: no
+
+- name: check out app
+  git: repo={{ app.repo }} dest={{ app.dir }} accept_hostkey=yes
+  when: app_dir.stat.exists == False or app_dir.stat.isdir == False
+  sudo: no
+
+- name: check has bundle installed
+  stat: path=~/bang-server/app/vendor/bundle
+  register: bundle_dir
+  sudo: no
+
+- name: setting for intalling nokogiri properly
+  command: bash -lc "cd ~/bang-server/app/; bundle config build.nokogiri --use-system-libraries;"
+  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
+  sudo: no
+
+- name: initial bundle install
+  command: bash -lc "cd ~/bang-server/app/; bundle install --path vendor/bundle;"
+  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
+  sudo: no
+
+- name: create db
+  command: bash -lc "cd ~/bang-server/app/; bundle exec rake db:create --trace;"
+  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
+  sudo: no
+
+#- name: create app synbolic link
+#  file: >
+#    src={{ app.src }}
+#    dest={{ app.dest }}
+#    mode=0755
+#    state=link
+#  when: app_dir.stat.exists == False or app_dir.stat.isdir == False
+#  sudo: no
