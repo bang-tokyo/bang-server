@@ -28,15 +28,15 @@
 
 - name: create app write users
   mysql_user:
-    name={{ write_user.name }}
-    password={{ write_user.password }}
+    name={{ db_user.write_user.name }}
+    password={{ db_user.write_user.password }}
     priv=*.*:ALL
     state=present
 
 - name: create app read users
   mysql_user:
-    name={{ read_user.name }}
-    password={{ read_user.password }}
+    name={{ db_user.read_user.name }}
+    password={{ db_user.read_user.password }}
     priv=*.*:SELECT
     state=present
 

@@ -20,8 +20,16 @@
   when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
   sudo: no
 
+- stat: path=~/.bundle/config
+  register: bundle_conf
+
+- name: set BUNDLE_PATH
+  command: echo BUNDLE_PATH:./vendor/bundle > ~/.bundle/config
+#  when: bundle_conf.stat.md5 is not defined
+  sudo: no
+
 - name: initial bundle install
-  command: bash -lc "cd ~/bang-server/app/; bundle install --path vendor/bundle;"
+  command: bash -lc "cd ~/bang-server/app/; bundle install;"
   when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
   sudo: no
 

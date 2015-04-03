@@ -1,19 +1,8 @@
 - hosts: server
   remote_user: bang
   sudo: yes
-  vars:
-    httpd_port: 80
-    rbenv:
-      repo: git://github.com/sstephenson/rbenv.git
-    rubybuild:
-      repo: git://github.com/sstephenson/ruby-build.git
-    ruby:
-      version: 2.1.5
-    app:
-      dir: ~/bang-server
-      src: ~/bang-server/app
-      dest: ~/app
-      repo: https://github.com/shiruco/bang-server.git
+  vars_files:
+    - conf.yml
   roles:
     - webserver
     - ruby

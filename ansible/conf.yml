@@ -1,0 +1,34 @@
+---
+httpd_port: 80
+
+# common.yml variables 
+dev_user:
+  name: bang
+  # See: https://github.com/ansible/ansible/issues/2305
+  # openssl passwd -salt salty -1 bang
+  password: bang
+
+# db.yml variables
+db_user:
+  root_user:
+    password: bang
+  write_user:
+    name: bang_w
+    password: bang_w
+  read_user:
+    name: bang_r
+    password: bang_r
+
+# web.yml variables
+rbenv:
+  repo: git://github.com/sstephenson/rbenv.git
+rubybuild:
+  repo: git://github.com/sstephenson/ruby-build.git
+ruby:
+  version: 2.1.5
+app:
+  dir: ~/bang-server
+  src: ~/bang-server/app
+  dest: ~/app
+  repo: https://github.com/shiruco/bang-server.git
+
