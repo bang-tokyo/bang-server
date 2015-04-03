@@ -10,6 +10,7 @@
   yum: name={{ item }} state=present
   with_items:
     - libselinux-python
+    - vim-enhanced
 
 # add application user
 - name: add application group
@@ -35,3 +36,16 @@
   # ローカルマシンのpublick keyを作成したユーザーに配布
   # TODO: stateとproductionの時、秘密鍵公開鍵を共有するか。
   authorized_key: user={{ user.name }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+# set vimrc
+- name: check vimrc exist.
+  stat: path=/home/{{ user.name }}/.vimrc
+  register: vimrc_file
+
+- name: set my.conf to db server
+  template: src=./../files/vimrc dest=/home/{{ user.name }}/.vimrc owner={{ user.name }} mode=0644
+  when: vimrc_file.stat.md5 is not defined
+
+- name: check out rbenv
+  shell: echo 'alias vi="vim"' >> /home/{{ user.name }}/.bash_profile
+  when: vimrc_file.stat.md5 is not defined
