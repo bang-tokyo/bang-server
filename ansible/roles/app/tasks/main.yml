@@ -24,7 +24,7 @@
   register: bundle_conf
 
 - name: set BUNDLE_PATH
-  command: echo BUNDLE_PATH:./vendor/bundle > ~/.bundle/config
+  command: echo BUNDLE_PATH:./vendor/bundle >> ~/.bundle/config
 #  when: bundle_conf.stat.md5 is not defined
   sudo: no
 
