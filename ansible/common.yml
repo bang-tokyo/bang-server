@@ -1,12 +1,7 @@
 - hosts: server
-  remote_user: vagrant
+  remote_user: root
   sudo: yes
-  vars:
-    httpd_port: 80
-    user:
-      name: bang
-      # password"bang"ハッシュ値
-      # python -c 'import crypt; print crypt.crypt("bang", "$1$SomeSalt$")'
-      password: $1D8xSupsgnPs
+  vars_files:
+    - conf.yml
   roles:
     - common

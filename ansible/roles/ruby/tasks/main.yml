@@ -87,18 +87,18 @@
     - libxslt-devel
     - readline-devel
 
-- name: install nokogiri
-  command: ~/.rbenv/bin/rbenv exec gem install nokogiri -- --use-system-libraries
-  sudo: no
+# - name: install nokogiri
+#   command: ~/.rbenv/bin/rbenv exec gem install nokogiri -- --use-system-libraries
+#   sudo: no
 
-- name: for nokogiri
-  command: ~/.rbenv/bin/rbenv exec gem install --no-ri --no-rdoc rails
-  sudo: no
+# - name: for nokogiri
+#   command: ~/.rbenv/bin/rbenv exec gem install --no-ri --no-rdoc rails
+#   sudo: no
 
-- name: install rails
-  command: ~/.rbenv/bin/rbenv exec gem install rails
-  sudo: no
+# - name: install rails
+#   command: ~/.rbenv/bin/rbenv exec gem install rails
+#   sudo: no
 
-- name: rbenv rehash
-  command: ~/.rbenv/bin/rbenv rehash
-  sudo: no
+# - name: rbenv rehash
+#   command: ~/.rbenv/bin/rbenv rehash
+#   sudo: no

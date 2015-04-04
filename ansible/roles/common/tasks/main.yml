@@ -14,14 +14,14 @@
 
 # add application user
 - name: add application group
-  group: name={{ user.name }} state=present
+  group: name={{ app_user.name }} state=present
 
 - name: add application user
   user:
-    name={{ user.name }}
-    password={{ user.password }}
-    group={{ user.name }}
-    home=/home/{{ user.name }}
+    name={{ app_user.name }}
+    password={{ app_user.password }}
+    group={{ app_user.name }}
+    home=/home/{{ app_user.name }}
     state=present
 
 - name: register application user to sudoers
@@ -29,23 +29,23 @@
     dest='/etc/sudoers'
     backup=yes
     state=present
-    regexp='^"{{ user.name }}"'
-    line='"{{ user.name }}" ALL=(ALL) NOPASSWD: ALL'
+    regexp='^"{{ app_user.name }}"'
+    line='"{{ app_user.name }}" ALL=(ALL) NOPASSWD: ALL'
 
 - name: register public key
   # ローカルマシンのpublick keyを作成したユーザーに配布
   # TODO: stateとproductionの時、秘密鍵公開鍵を共有するか。
-  authorized_key: user={{ user.name }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  authorized_key: user={{ app_user.name }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
 # set vimrc
 - name: check vimrc exist.
-  stat: path=/home/{{ user.name }}/.vimrc
+  stat: path=/home/{{ app_user.name }}/.vimrc
   register: vimrc_file
 
 - name: set my.conf to db server
-  template: src=./../files/vimrc dest=/home/{{ user.name }}/.vimrc owner={{ user.name }} mode=0644
+  template: src=./../files/vimrc dest=/home/{{ app_user.name }}/.vimrc owner={{ app_user.name }} mode=0644
   when: vimrc_file.stat.md5 is not defined
 
 - name: check out rbenv
-  shell: echo 'alias vi="vim"' >> /home/{{ user.name }}/.bash_profile
+  shell: echo 'alias vi="vim"' >> /home/{{ app_user.name }}/.bash_profile
   when: vimrc_file.stat.md5 is not defined

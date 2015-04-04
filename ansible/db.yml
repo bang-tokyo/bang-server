@@ -1,14 +1,7 @@
 - hosts: db
   remote_user: bang
   sudo: yes
-  vars:
-    root_user:
-      password: bang
-    write_user:
-      name: bang_w
-      password: bang_w
-    read_user:
-      name: bang_r
-      password: bang_r
+  vars_files:
+    - conf.yml
   roles:
     - db

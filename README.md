@@ -17,12 +17,13 @@
 3. Vagrantで作った開発環境に公開鍵を配置
 
   ```
-  $ ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@192.168.33.10
+  $ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.33.10
   ```
 4. ansibleでサーバーセットアップ
 
   ```
   $ cd bang-server/ansible
+  $ ansible-vault decrypt conf.yml
   $ ansible-playbook -i develop all.yml
   ```
 5. 開発環境のファイアーウォールをOFF(仮対応)
