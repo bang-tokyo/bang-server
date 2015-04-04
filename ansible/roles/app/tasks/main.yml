@@ -24,8 +24,11 @@
   register: bundle_conf
 
 - name: set BUNDLE_PATH
-  command: echo BUNDLE_PATH:./vendor/bundle >> ~/.bundle/config
-#  when: bundle_conf.stat.md5 is not defined
+  lineinfile: >-
+    dest='~/.bundle/config'
+    state=present
+    regexp='^BUNDLE_PATH'
+    line='BUNDLE_PATH:./vendor/bundle'
   sudo: no
 
 - name: initial bundle install
