@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "$1" | grep "ANSIBLE_VAULT;1.1;AES256" ./ansible/conf.yml
+if [ "$?" -eq 0 ]
+then
+	exit 0
+else
+	echo 'COMMIT FAILD'
+	exit 1
+fi
