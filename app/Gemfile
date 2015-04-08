@@ -33,6 +33,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+# For Application
+gem 'rb-readline', '~> 0.4.2'
+gem 'annotate'
+gem 'activerecord-mysql-awesome'
+gem 'symmetric-encryption'
+
+# For Application Test
 group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
@@ -41,7 +49,3 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
-
-# For Application
-gem 'rb-readline', '~> 0.4.2'
-gem 'activerecord-mysql-awesome'

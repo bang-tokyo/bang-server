@@ -8,15 +8,14 @@ class Init < ActiveRecord::Migration
     private
     def create_users
         create_table :users, id: :bigint, unsigned: true do |t|
-            t.string :facebook_id, limit: 128, null: false, dafault: ""
-            t.string :name, limit: 191, null: false, dafault: ""
-            t.string :birthday, limit: 10, null: false, defalt: ""
-            t.integer :gender, limit: 3, null: false, defalt: 3
-            t.integer :region_id, limit: 3, null: false, defalt: 0
-            t.integer :salary_category_id, limit: 3, null: false, defalt: 0
-            t.integer :status, limit: 3, null: false, defalt: 0
-            t.integer :billing_status, limit: 3, null: false, defalt: 0
-            t.string :encrypted_token, limit: 255, null: false
+            t.string :facebook_id, limit: 128, null: false, default: ""
+            t.string :name, limit: 191, null: false, default: ""
+            t.string :birthday, limit: 10, null: false, default: ""
+            t.integer :gender, limit: 3, null: false, default: 3
+            t.integer :region_id, limit: 3, null: false, default: 0
+            t.integer :salary_category_id, limit: 3, null: false, default: 0
+            t.integer :status, limit: 3, null: false, default: 0
+            t.string :encrypted_secret, limit: 255, null: false
             t.timestamps null: false
         end
     end

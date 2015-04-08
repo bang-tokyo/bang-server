@@ -74,15 +74,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `facebook_id` varchar(128) NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `birthday` varchar(10) NOT NULL,
-  `gender` mediumint(9) NOT NULL,
-  `region_id` mediumint(9) NOT NULL,
-  `salary_category_id` mediumint(9) NOT NULL,
-  `status` mediumint(9) NOT NULL,
-  `billing_status` mediumint(9) NOT NULL,
-  `encrypted_token` varchar(255) NOT NULL,
+  `facebook_id` varchar(128) NOT NULL DEFAULT '',
+  `name` varchar(191) NOT NULL DEFAULT '',
+  `birthday` varchar(10) NOT NULL DEFAULT '',
+  `gender` mediumint(9) NOT NULL DEFAULT '3',
+  `region_id` mediumint(9) NOT NULL DEFAULT '0',
+  `salary_category_id` mediumint(9) NOT NULL DEFAULT '0',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `encrypted_secret` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -98,6 +97,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-06  9:27:32
+-- Dump completed on 2015-04-07 14:35:36
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
