@@ -10,19 +10,6 @@
   when: app_dir.stat.exists == False or app_dir.stat.isdir == False
   sudo: no
 
-- name: check has bundle installed
-  stat: path=~/bang-server/app/vendor/bundle
-  register: bundle_dir
-  sudo: no
-
-- name: setting for intalling nokogiri properly
-  command: bash -lc "cd ~/bang-server/app/; bundle config build.nokogiri --use-system-libraries;"
-  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
-  sudo: no
-
-- stat: path=~/.bundle/config
-  register: bundle_conf
-
 - name: set BUNDLE_PATH
   lineinfile: >-
     dest='~/.bundle/config'
@@ -31,21 +18,36 @@
     line='BUNDLE_PATH:./vendor/bundle'
   sudo: no
 
+- name: create app synbolic link
+  file: >
+    src={{ app.src }}
+    dest={{ app.dest }}
+    mode=0755
+    state=link
+  when: app_dir.stat.exists == False or app_dir.stat.isdir == False
+  sudo: no
+
+- name: check has bundle installed
+  stat: path=~/app/vendor/bundle
+  register: bundle_dir
+  sudo: no
+
+- name: setting for intalling nokogiri properly
+  command: bash -lc "cd ~/app/; bundle config build.nokogiri --use-system-libraries;"
+  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
+  sudo: no
+
 - name: initial bundle install
-  command: bash -lc "cd ~/bang-server/app/; bundle install;"
+  command: bash -lc "cd ~/app/; bundle install;"
   when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
   sudo: no
 
 - name: create db
-  command: bash -lc "cd ~/bang-server/app/; bundle exec rake db:create --trace;"
+  command: bash -lc "cd ~/app/; bundle exec rake db:create --trace;"
   when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
   sudo: no
 
-#- name: create app synbolic link
-#  file: >
-#    src={{ app.src }}
-#    dest={{ app.dest }}
-#    mode=0755
-#    state=link
-#  when: app_dir.stat.exists == False or app_dir.stat.isdir == False
-#  sudo: no
+- name: init rspec
+  command: bash -lc "cd ~/app/; bundle exec rake db:test:prepare;"
+  when: bundle_dir.stat.exists == False or bundle_dir.stat.isdir == False
+  sudo: no
