@@ -46,3 +46,8 @@
   $ bundle exec rails s -b 0.0.0.0
   ```
   http://localhost:3000にアクセス
+  
+  apiサブドメインに対応するためmac側の/ete/hostsに設定追加
+  ```
+  127.0.0.1 api.localhost.local
+  ```
