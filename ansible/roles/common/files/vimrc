@@ -1,12 +1,12 @@
 " vim の独自拡張機能を使う(viとの互換性をとらない)
 set nocompatible
 " マウス機能有効化
-set mouse=a
+"set mouse=a
 " 文字コードを指定する
-set encoding=utf8
-set fenc=utf-8
+set encoding=utf-8
+set fencs=utf-8
 " ファイルエンコードを指定する
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 " 自動認識させる改行コードを指定する
 set fileformats=unix,dos
 " 検索履歴を50個残す
@@ -21,11 +21,11 @@ set hlsearch
 set incsearch
 " 改行 ( $ ) やタブ ( ^I ) を可視化する
 " set list
-" インデントをTabではなくスペース4つで揃える　
-set tabstop=4
+" インデントをTabではなくスペース2つで揃える　
+set tabstop=2
 set autoindent
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 " 括弧入力時に対応する括弧を強調する
 set showmatch
 " 構文ごとに色分け表示する
