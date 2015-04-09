@@ -3,9 +3,12 @@ module Bang
     class Base < StandardError
       DEFAULT_CODE = 0
 
-      def initialize(code: nil, message: nil)
+      attr_reader :debug_message
+
+      def initialize(code: nil, message: nil, debug_message: nil)
         super(message)
         @code = code
+        @debug_message = debug_message unless Rails.env.production?
       end
 
       def code
@@ -26,7 +29,7 @@ module Bang
 
       def self.convert(exception)
         if exception.is_a? ActiveRecord::RecordInvalid
-          self.new(debug_message: 'ActiveRecord::RecordInvalid', message: exception.message, errors: [exception.message])
+          self.new(debug_message: 'ActiveRecord::RecordInvalid', message: exception.message)
         else
           self.new(debug_message: exception.message)
         end
