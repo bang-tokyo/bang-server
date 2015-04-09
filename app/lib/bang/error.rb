@@ -21,7 +21,7 @@ module Bang
       end
     end
 
-    class AuthenticationFaild < Base
+    class AuthenticationFailed < Base
     end
 
     class ValidationError < Base

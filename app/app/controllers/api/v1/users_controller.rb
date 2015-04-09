@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < Api::ApplicationController
 
   # TODO weak_parameters 導入した方がよさげ
 
