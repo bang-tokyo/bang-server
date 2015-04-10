@@ -39,6 +39,7 @@ gem 'rb-readline', '~> 0.4.2'
 gem 'annotate'
 gem 'activerecord-mysql-awesome'
 gem 'symmetric-encryption'
+gem 'jbuilder', '~> 2.0'
 
 # For Application Test
 group :development, :test do
