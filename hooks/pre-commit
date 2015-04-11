@@ -22,5 +22,6 @@ then
 	exit 0
 else
 	echo 'COMMIT FAILD'
-	exit 1
+	echo 'exec ansible-vault encrypt conf.yml '
+        exit 1
 fi
