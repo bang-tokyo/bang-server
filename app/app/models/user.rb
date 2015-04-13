@@ -35,18 +35,18 @@ class User < ActiveRecord::Base
 
   class << self
     def fetch_by_token!(token)
-      raise Bang::Error::AuthenticationFaild.new unless token.present?
+      raise Bang::Error::AuthenticationFailed.new unless token.present?
       id, secret = token.split(SEPARATOR)
       user = find_by(id: id)
-      raise Bang::Error::AuthenticationFaild.new unless user.present?
-      raise Bang::Error::AuthenticationFaild.new unless user.secret == secret
+      raise Bang::Error::AuthenticationFailed.new unless user.present?
+      raise Bang::Error::AuthenticationFailed.new unless user.secret == secret
       user
     end
 
     def fetch_by_token(token)
       begin
         fetch_by_token!(token)
-      rescue Bang::Error::AuthenticationFaild
+      rescue Bang::Error::AuthenticationFailed
         nil
       end
     end

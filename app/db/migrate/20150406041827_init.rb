@@ -3,6 +3,8 @@ class Init < ActiveRecord::Migration
         create_users
         create_user_activities
         create_user_positions
+
+        create_groups
     end
 
     private
@@ -39,5 +41,16 @@ class Init < ActiveRecord::Migration
 
         add_index :user_positions, :user_id, unique: true
         add_index :user_positions, [:latitude, :longitude]
+    end
+
+    def create_groups
+        create_table :groups, id: :bigint, unsigned: true do |t|
+            t.string :owner_user_id :bigint, null: false, default: ""
+            t.string :name, limit: 100, null: false, default: ""
+            t.string :memo, limit: 1000, default: ""
+            t.integer :region_id, limit: 1000, null: false, default: 0
+            t.integer :status, limit: 3, null: false, default: 0
+            t.timestamps null: false
+        end
     end
 end
