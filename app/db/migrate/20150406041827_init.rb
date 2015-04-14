@@ -4,6 +4,8 @@ class Init < ActiveRecord::Migration
         create_user_activities
         create_user_positions
         create_groups
+        create_group_users
+        create_group_settings
     end
 
     private
@@ -51,5 +53,28 @@ class Init < ActiveRecord::Migration
             t.integer :status, limit: 2, null: false, default: 0
             t.timestamps null: false
         end
+    end
+
+    def create_group_users
+        create_table :group_users, id: :bigint, unsigned: true do |t|
+            t.bigint :group_id, unsigned: true, null: false
+            t.bigint :user_id, unsigned: true, null: false
+            t.integer :status, limit: 3, null: false, default: 0
+            t.timestamps null: false
+        end
+
+        add_foreign_key :group_users, :groups, column: :group_id, primary_key: "id"
+        add_foreign_key :group_users, :users, column: :user_id, primary_key: "id"
+    end
+
+    def create_group_settings
+        create_table :group_settings, id: :bigint, unsigned: true do |t|
+            t.bigint :group_id, unsigned: true, null: false
+            t.integer :key, limit: 3, null: false, default: 0
+            t.integer :value, limit: 3, null: false, default: 0
+            t.timestamps null: false
+        end
+
+        add_foreign_key :group_settings, :groups, column: :group_id, primary_key: "id"
     end
 end
