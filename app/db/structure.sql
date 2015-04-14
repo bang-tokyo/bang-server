@@ -26,9 +26,9 @@ CREATE TABLE `groups` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `owner_user_id` bigint(20) unsigned NOT NULL,
   `name` varchar(100) NOT NULL DEFAULT '',
-  `memo` varchar(1000) DEFAULT '',
-  `region_id` bigint(20) NOT NULL DEFAULT '0',
-  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `memo` text,
+  `region_id` mediumint(9) NOT NULL DEFAULT '0',
+  `status` smallint(6) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -117,6 +117,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-13 17:04:44
+-- Dump completed on 2015-04-14  9:30:13
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
