@@ -62,9 +62,6 @@ class Init < ActiveRecord::Migration
             t.integer :status, limit: 3, null: false, default: 0
             t.timestamps null: false
         end
-
-        add_foreign_key :group_users, :groups, column: :group_id, primary_key: "id"
-        add_foreign_key :group_users, :users, column: :user_id, primary_key: "id"
     end
 
     def create_group_settings
@@ -74,7 +71,5 @@ class Init < ActiveRecord::Migration
             t.integer :value, limit: 3, null: false, default: 0
             t.timestamps null: false
         end
-
-        add_foreign_key :group_settings, :groups, column: :group_id, primary_key: "id"
     end
 end
