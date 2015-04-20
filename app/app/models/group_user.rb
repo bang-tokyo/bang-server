@@ -11,4 +11,9 @@
 #
 
 class GroupUser < ActiveRecord::Base
+
+	enum status: {inactive: 0, active: 1}
+	
+	belongs_to :group
+
 end

@@ -19,28 +19,9 @@ class Group < ActiveRecord::Base
   has_many :group_user
   has_many :group_setting
 
-  class << self
-    def fetch!()
-      raise Bang::Error::AuthenticationFailed.new unless token.present?
-      id, secret = token.split(SEPARATOR)
-      user = find_by(id: id)
-      raise Bang::Error::AuthenticationFailed.new unless user.present?
-      raise Bang::Error::AuthenticationFailed.new unless user.secret == secret
-      user
-    end
-
-    def fetch()
-      begin
-        fetch!()
-      rescue Bang::Error::AuthenticationFailed
-        nil
-      end
-    end
-  end
-
-  def gender_value
-    self.class.genders[gender]
-  end
+  validates :owner_user_id,
+            presence: true,
+            on: :create
 
   def status_value
     self.class.statuses[status]
@@ -52,12 +33,6 @@ class Group < ActiveRecord::Base
 
   def banned?
     !active?
-  end
-
-  private
-  def generate_secret
-    return if self.secret.present?
-    self.secret = Array.new(64) { SEEDS[rand(SEEDS.size)] }.join
   end
 
 end
