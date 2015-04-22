@@ -16,23 +16,19 @@ class Group < ActiveRecord::Base
 
   enum status: {inactive: 0, active: 1}
 
-  has_many :group_user
-  has_many :group_setting
+  has_many :group_user, class_name: 'GroupUser', dependent: :destroy
+  has_one :group_setting, class_name: 'GroupSetting', dependent: :destroy
 
   validates :owner_user_id,
             presence: true,
             on: :create
 
   def status_value
-    self.class.statuses[status]
+    self.statuses[status]
   end
 
   def active?
-    status == self.class.statuses[:active]
-  end
-
-  def banned?
-    !active?
+    status == self.statuses[:active]
   end
 
 end

@@ -52,11 +52,10 @@ class Api::V1::GroupsController < Api::ApplicationController
   end
 
   def index
-    count = params[:count] || 20
+    limit = params[:limit] || 20
     offset = params[:offset] || nil
-    limit = params[:limit] || nil
 
-    @groups = Group.limit(limit).order('id desc').paginate(count: count).offset(offset)
+    @groups = Group.limit(limit).order('id desc').offset(offset)
   end
 
   # private
