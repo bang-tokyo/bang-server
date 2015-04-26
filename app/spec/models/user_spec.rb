@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
 
     context 'When the token is not collect' do
       let(:token) { "#{@user.id}-xxxxxxxx" }
-      it { expect{ subject }.to raise_error Bang::Error::AuthenticationFaild }
+      it { expect{ subject }.to raise_error Bang::Error::AuthenticationFailed }
     end
   end
 
