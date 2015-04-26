@@ -12,7 +12,10 @@
 
 FactoryGirl.define do
   factory :group_setting do
+  	sequence(:id, 100) { |n| n }
+    key { "key#{id}" }
+    value { "value#{id}" }
 
+    association :group, factory: :group
   end
-
 end

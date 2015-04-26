@@ -14,7 +14,10 @@
 
 FactoryGirl.define do
   factory :group do
-    
+    sequence(:id, 100) { |n| n }
+    name { "group_#{id}" }
+    memo { "memo_#{id}" }
+    region_id { 1 }
+    status :active
   end
-
 end

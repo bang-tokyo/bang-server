@@ -12,7 +12,9 @@
 
 FactoryGirl.define do
   factory :group_user do
+  	sequence(:id, 100) { |n| n }
+    status :active
 
+    association :group, factory: :group
   end
-
 end
