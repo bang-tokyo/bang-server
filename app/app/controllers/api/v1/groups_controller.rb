@@ -6,7 +6,7 @@ class Api::V1::GroupsController < Api::ApplicationController
     name = params[:name]
 
     #ユーザーのチェック
-    user = User.find_by(id: params[:owner_user_id])
+    user = User.find_by!(id: owner_user_id)
     raise Bang::Error::AuthenticationFailed.new unless user.present?
     raise Bang::Error::AuthenticationFailed.new unless name.present?
 
@@ -18,18 +18,12 @@ class Api::V1::GroupsController < Api::ApplicationController
       region_id: params[:region_id]
     )
 
-    #group_userも一緒につくる
-    @group_user = GroupUser.create!(
-      group_id: @group.id,
-      user_id: owner_user_id
-    )
-
   end
 
   def update
     #verify_post_permission!
 
-    group = Group.find_by(id: params[:group_id])
+    group = Group.find_by!(id: params[:group_id])
     raise Bang::Error::AuthenticationFailed.new unless group.present?
 
     #verify_answer!(answer)
@@ -44,7 +38,7 @@ class Api::V1::GroupsController < Api::ApplicationController
   end
 
   def show
-    group = Group.find_by(id: params[:group_id])
+    @group = Group.find_by(id: params[:group_id])
     unless group.present?
       render_not_found
       return
@@ -56,6 +50,10 @@ class Api::V1::GroupsController < Api::ApplicationController
     offset = params[:offset] || nil
 
     @groups = Group.limit(limit).order('id desc').offset(offset)
+  end
+
+  def destroy
+    #物理削除にするか検討
   end
 
   # private
