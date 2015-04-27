@@ -1,5 +1,16 @@
 class Api::V1::GroupUsersController < Api::ApplicationController
 
+  validates :create do
+    integer :group_id, required: true
+    integer :user_id, required: true
+  end
+
+  validates :index do
+    integer :group_id, required: true
+    integer :limit
+    integer :offset
+  end
+
   def create
 
     group_id = params[:group_id]

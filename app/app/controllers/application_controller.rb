@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include ErrorRenderer
+
+  rescue_from WeakParameters::ValidationError, with: -> (e) { render_bad_request(Bang::Error::ValidationError.convert(e)) }
 end

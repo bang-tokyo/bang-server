@@ -1,5 +1,28 @@
 class Api::V1::GroupsController < Api::ApplicationController
 
+  validates :create do
+    integer :owner_user_id, required: true
+    string :name, required: true
+    string :memo
+    integer :region_id
+  end
+
+  validates :update do
+    integer :group_id, required: true
+    string :name
+    string :memo
+    integer :region_id
+  end
+
+  validates :show do
+    integer :group_id, required: true
+  end
+
+  validates :index do
+    integer :limit
+    integer :offset
+  end
+
   def create
 
     owner_user_id = params[:owner_user_id]

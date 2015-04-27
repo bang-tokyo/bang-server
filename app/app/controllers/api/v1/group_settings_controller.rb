@@ -1,5 +1,15 @@
 class Api::V1::GroupSettingsController < Api::ApplicationController
 
+  validates :update do
+    integer :group_id, required: true
+    integer :key, required: true
+    integer :value, required: true
+  end
+
+  validates :show do
+    integer :group_id, required: true
+  end
+
   def update
 
     group_id = params[:group_id]
