@@ -2,10 +2,10 @@ class Api::V1::GroupSettingsController < Api::ApplicationController
 
   def update
 
-  	group_id = params[:group_id]
+    group_id = params[:group_id]
 
-  	@group = Group.find_by!(id: group_id)
-  	group_setting = GroupSetting.find_or_create_by(group_id: group_id) do |s|
+    @group = Group.find_by!(id: group_id)
+    group_setting = GroupSetting.find_or_create_by(group_id: group_id) do |s|
       s.key = params[:key]
       s.value = params[:value]
     end
@@ -16,7 +16,7 @@ class Api::V1::GroupSettingsController < Api::ApplicationController
   end
 
   def show
-  	@group_setting = GroupSetting.find_by(id: params[:group_id])
+    @group_setting = GroupSetting.find_by(id: params[:group_id])
     unless @group_setting.present?
       render_not_found
       return

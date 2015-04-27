@@ -2,8 +2,8 @@ class Api::V1::GroupUsersController < Api::ApplicationController
 
   def create
 
-  	group_id = params[:group_id]
-  	user_id = params[:user_id]
+    group_id = params[:group_id]
+    user_id = params[:user_id]
 
     #ユーザーのチェック
     user = User.find_by(id: user_id)
@@ -18,15 +18,15 @@ class Api::V1::GroupUsersController < Api::ApplicationController
   end
 
   def index
-  	group_id = params[:group_id]
-  	limit = params[:limit] || 20
+    group_id = params[:group_id]
+    limit = params[:limit] || 20
     offset = params[:offset] || nil
 
     @group_user = GroupUser.where(group_id: group_id).limit(limit).order('id desc').offset(offset)
   end
 
   def destroy
-  	#物理削除にするか検討
+    #物理削除にするか検討
   end
 
 end

@@ -12,11 +12,11 @@
 
 class GroupUser < ActiveRecord::Base
 
-	enum status: {inactive: 0, active: 1}
-	
-	belongs_to :group, class_name: 'Group', foreign_key: 'group_id'
+  enum status: {inactive: 0, active: 1}
 
-	validates :group_id,
+  belongs_to :group, class_name: 'Group', foreign_key: 'group_id'
+
+  validates :group_id,
             presence: true,
             on: :create
 
@@ -24,7 +24,7 @@ class GroupUser < ActiveRecord::Base
             presence: true,
             on: :create
 
-	def status_value
+  def status_value
       self.statuses[status]
     end
 

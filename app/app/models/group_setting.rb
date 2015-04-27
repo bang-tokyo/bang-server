@@ -12,9 +12,9 @@
 
 class GroupSetting < ActiveRecord::Base
 
-	belongs_to :group, class_name: 'Group', foreign_key: 'group_id'
+  belongs_to :group, class_name: 'Group', foreign_key: 'group_id'
 
-	validates :group_id,
+  validates :group_id,
             presence: true,
             on: :create
 end
