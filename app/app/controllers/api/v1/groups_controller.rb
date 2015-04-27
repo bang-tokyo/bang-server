@@ -7,8 +7,8 @@ class Api::V1::GroupsController < Api::ApplicationController
 
     #ユーザーのチェック
     user = User.find_by!(id: owner_user_id)
-    raise Bang::Error::AuthenticationFailed.new unless user.present?
-    raise Bang::Error::AuthenticationFailed.new unless name.present?
+    raise Bang::Error::ValidationError.new unless user.present?
+    raise Bang::Error::ValidationError.new unless name.present?
 
     #グループ作成
     @group = Group.create!(
@@ -21,12 +21,9 @@ class Api::V1::GroupsController < Api::ApplicationController
   end
 
   def update
-    #verify_post_permission!
 
     group = Group.find_by!(id: params[:group_id])
-    raise Bang::Error::AuthenticationFailed.new unless group.present?
-
-    #verify_answer!(answer)
+    raise Bang::Error::ValidationError.new unless group.present?
 
     @group = group.tap do |g|
       g.name = params[:name] if params[:name].present?

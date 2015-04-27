@@ -7,7 +7,7 @@ class Api::V1::GroupUsersController < Api::ApplicationController
 
     #ユーザーのチェック
     user = User.find_by(id: user_id)
-    raise Bang::Error::AuthenticationFailed.new unless user.present?
+    raise Bang::Error::ValidationError.new unless user.present?
 
     #グループ作成
     @group_user = GroupUser.create!(
