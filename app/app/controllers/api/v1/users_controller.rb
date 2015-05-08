@@ -10,7 +10,6 @@ class Api::V1::UsersController < Api::ApplicationController
       @is_new = false
     else
       @user = User.create!(permitted_params)
-      @user.save!
       @is_new = true
     end
     update_device(@user)
