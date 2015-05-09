@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
   has_many :devices
   has_many :user_attributes
 
-  # NOTE: - user_positionはあくまで検索用なのでアソシエーションしない
-  #has_one :user_position
+  # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
+  #has_one :user_location
 
   attr_encrypted :secret, random_iv: true
 

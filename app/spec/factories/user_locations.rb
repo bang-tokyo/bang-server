@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: user_positions
+# Table name: user_locations
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
@@ -10,7 +10,9 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
+FactoryGirl.define do
+  factory :user_location do
 
-RSpec.describe UserPosition, type: :model do
+  end
+
 end

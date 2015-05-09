@@ -76,13 +76,13 @@ CREATE TABLE `user_attributes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `user_positions`
+-- Table structure for table `user_locations`
 --
 
-DROP TABLE IF EXISTS `user_positions`;
+DROP TABLE IF EXISTS `user_locations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_positions` (
+CREATE TABLE `user_locations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL,
   `latitude` decimal(9,6) NOT NULL,
@@ -90,8 +90,8 @@ CREATE TABLE `user_positions` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_user_positions_on_user_id` (`user_id`),
-  KEY `index_user_positions_on_latitude_and_longitude_and_updated_at` (`latitude`,`longitude`,`updated_at`)
+  UNIQUE KEY `index_user_locations_on_user_id` (`user_id`),
+  KEY `index_user_locations_on_latitude_and_longitude_and_updated_at` (`latitude`,`longitude`,`updated_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -127,6 +127,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-07 20:43:08
+-- Dump completed on 2015-05-08 10:58:31
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 

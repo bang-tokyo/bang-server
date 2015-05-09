@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         # 取得、更新用にme_controllerを用意
         get 'me' => 'me#show'
         put 'me' => 'me#update'
+        put 'me/location' => 'me#update_location'
       end
     end
   end

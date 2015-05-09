@@ -1,4 +1,7 @@
 class Api::V1::MeController < Api::ApplicationController
+
+  #TODO: - parameterのvalidateをする
+
   def show
     @user = current_user
   end
@@ -6,6 +9,10 @@ class Api::V1::MeController < Api::ApplicationController
   def update
     update_user
     @user = current_user
+  end
+
+  def update_location
+    update_user_location
   end
 
   private
@@ -33,5 +40,20 @@ class Api::V1::MeController < Api::ApplicationController
         )
       end
     end
+  end
+
+  def update_user_location
+      user_location = UserLocation.find_by(user_id: current_user.id)
+      if user_location.present?
+        user_location.latitude = params[:latitude]
+        user_location.longitude = params[:longitude]
+        user_location.save!
+      else
+        UserLocation.create!(
+          user_id: current_user.id,
+          latitude: params[:latitude],
+          longitude: params[:longitude]
+        )
+      end
   end
 end
