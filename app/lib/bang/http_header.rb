@@ -12,7 +12,7 @@ module Bang
     attr_accessor :token
     attr_accessor :app_id
     attr_accessor :app_version
-    attr_accessor :app_version_ode
+    attr_accessor :app_version_code
     attr_accessor :os
     attr_accessor :os_version
     attr_accessor :model
@@ -22,7 +22,7 @@ module Bang
       @token = headers[TOKEN]
       @app_id = headers[APP_ID]
       @app_version = headers[APP_VERSION]
-      @app_version_ode = headers[APP_VERSION_CODE]
+      @app_version_code = headers[APP_VERSION_CODE]
       @os = headers[OS]
       @os_version = headers[OS_VERSION]
       @model = headers[MODEL]
@@ -33,7 +33,7 @@ module Bang
       token = headers[TOKEN]
       app_id = headers[APP_ID]
       app_version = headers[APP_VERSION]
-      app_version_ode = headers[APP_VERSION_CODE]
+      app_version_code = headers[APP_VERSION_CODE]
       os = headers[OS]
       os_version = headers[OS_VERSION]
       model = headers[MODEL]
@@ -45,7 +45,7 @@ module Bang
         TOKEN => @token,
         APP => @app_id,
         APP_VERSION => @app_version,
-        APP_VERSION_CODE => @app_version_ode,
+        APP_VERSION_CODE => @app_version_code,
         OS => @os,
         OS_VERSION => @os_version,
         MODEL => @model,

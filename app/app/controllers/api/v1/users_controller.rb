@@ -13,6 +13,7 @@ class Api::V1::UsersController < Api::ApplicationController
       @user.save!
       @is_new = true
     end
+    update_device(@user)
   end
 
   def show
@@ -26,5 +27,14 @@ class Api::V1::UsersController < Api::ApplicationController
   private
   def permitted_params
     params.require(:user).permit(:facebook_id, :name, :birthday, :gender)
+  end
+
+  def update_device(user)
+    h = custom_header
+    Device.find_or_create_by(user_id: user.id, os: h.os, uuid: h.uuid, app_id: h.app_id).tap do |d|
+      d.fill_from_header(h)
+      d.status = :active
+      d.save
+    end
   end
 end

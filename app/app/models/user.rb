@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   enum gender: {male: 1, female: 2, transgender: 3}
   enum status: {active: 0, banned: 1}
 
+  has_many :devices
+
   #has_one :user_activity
   #has_one :user_position
 

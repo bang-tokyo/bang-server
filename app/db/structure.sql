@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `devices`
+--
+
+DROP TABLE IF EXISTS `devices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `devices` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `uuid` varchar(100) NOT NULL DEFAULT '',
+  `os` varchar(16) NOT NULL DEFAULT '',
+  `os_version` varchar(16) NOT NULL DEFAULT '',
+  `model` varchar(255) NOT NULL DEFAULT '',
+  `app_version` varchar(255) NOT NULL DEFAULT '',
+  `app_version_code` int(10) unsigned NOT NULL DEFAULT '0',
+  `app_id` varchar(100) NOT NULL DEFAULT '',
+  `push_token` varchar(4096) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_devices_on_user_id_and_os_and_uuid_and_app_id` (`user_id`,`os`,`uuid`,`app_id`),
+  KEY `index_devices_on_user_id_and_status` (`user_id`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `schema_migrations`
 --
 
@@ -97,6 +124,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-07 14:35:36
+-- Dump completed on 2015-05-02 23:30:37
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
