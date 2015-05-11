@@ -44,11 +44,10 @@ class Api::V1::GroupsController < Api::ApplicationController
 
     #グループユーザー作成
     user_ids = params[:user_ids]
-    user_ids_arr = user_ids.split(",")
 
-    if user_ids_arr.length > 0
+    if user_ids.length > 0
 
-      user_ids_arr.each{|user_id|
+      user_ids.each{|user_id|
 
         #ユーザーのチェック
         user = User.find_by!(id: user_id)
