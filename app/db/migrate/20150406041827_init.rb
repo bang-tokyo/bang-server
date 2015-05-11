@@ -1,8 +1,8 @@
 class Init < ActiveRecord::Migration
   def change
     create_users
-    create_user_activities
-    create_user_positions
+    create_user_attributes
+    create_user_locations
     create_devices
   end
 
@@ -21,25 +21,28 @@ class Init < ActiveRecord::Migration
     end
   end
 
-  def create_user_activities
-    create_table :user_activities, id: :bigint, unsigned: true do |t|
+  def create_user_attributes
+    create_table :user_attributes, id: :bigint, unsigned: true do |t|
       t.bigint :user_id, unsigned: true, null: false
+      t.string :key, limit: 50, null: false, default: ""
+      t.text :value
       t.timestamps null: false
     end
 
-    add_index :user_activities, :user_id, unique: true
+    add_index :user_attributes, [:user_id, :key], unique: true
+    add_index :user_attributes, :key
   end
 
-  def create_user_positions
-    create_table :user_positions, id: :bigint, unsigned: true do |t|
+  def create_user_locations
+    create_table :user_locations, id: :bigint, unsigned: true do |t|
       t.bigint :user_id, unsigned: true, null: false
       t.decimal :latitude, :precision => 9, :scale => 6, null: false
       t.decimal :longitude, :precision => 9, :scale => 6, null: false
       t.timestamps null: false
     end
 
-    add_index :user_positions, :user_id, unique: true
-    add_index :user_positions, [:latitude, :longitude]
+    add_index :user_locations, :user_id, unique: true
+    add_index :user_locations, [:latitude, :longitude, :updated_at]
   end
 
   def create_devices

@@ -24,6 +24,7 @@ FactoryGirl.define do
     region_id { 1 }
     salary_category_id { 1 }
     status :active
-    secret 'QEVuQwBAEABBnbCPvCuT4K1l3UTbixrd1'
+    secret "QEVuQwBAEABBnbCPvCuT4K1l3UTbixrd1"
   end
+
 end
