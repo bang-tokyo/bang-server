@@ -22,8 +22,11 @@ class User < ActiveRecord::Base
   enum gender: {male: 1, female: 2, transgender: 3}
   enum status: {active: 0, banned: 1}
 
-  #has_one :user_activity
-  #has_one :user_position
+  has_many :devices
+  has_many :user_attributes
+
+  # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
+  #has_one :user_location
 
   attr_encrypted :secret, random_iv: true
 
@@ -50,18 +53,18 @@ class User < ActiveRecord::Base
         nil
       end
     end
+
+    def gender_from_string(string)
+      case string.downcase
+      when 'male', 'man' then :male
+      when 'female', 'woman' then :female
+      else :transgender
+      end
+    end
   end
 
   def token
     "#{self.id}#{SEPARATOR}#{self.secret}"
-  end
-
-  def gender_value
-    self.class.genders[gender]
-  end
-
-  def status_value
-    self.class.statuses[status]
   end
 
   def active?
@@ -72,9 +75,26 @@ class User < ActiveRecord::Base
     !active?
   end
 
+  def gender_value
+    self.class.genders[gender]
+  end
+
+  def status_value
+    self.class.statuses[status]
+  end
+
+  def self_introduction
+    attribute_value('self_introduction')
+  end
+
   private
   def generate_secret
     return if self.secret.present?
     self.secret = Array.new(64) { SEEDS[rand(SEEDS.size)] }.join
+  end
+
+  def attribute_value(key)
+    user_attribute = self.user_attributes.by_key(key).first
+    return user_attribute.present? ? user_attribute.value : ""
   end
 end

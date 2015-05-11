@@ -8,6 +8,11 @@ Rails.application.routes.draw do
           put 'setting' => 'group_setting#update'
           resources :group_users, only: [:create, :destroy]
         end
+        # user_idをパラメータに持ちたくないので自分の情報の
+        # 取得、更新用にme_controllerを用意
+        get 'me' => 'me#show'
+        put 'me' => 'me#update'
+        put 'me/location' => 'me#update_location'
       end
     end
   end

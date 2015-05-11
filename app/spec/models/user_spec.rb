@@ -62,12 +62,12 @@ RSpec.describe User, type: :model do
 
     context 'When its status is active' do
       let(:status) { :active }
-      it { is_expected.to eq 1 }
+      it { is_expected.to eq 0 }
     end
 
     context 'When its status is banned' do
       let(:status) { :banned }
-      it { is_expected.to eq 2 }
+      it { is_expected.to eq 1 }
     end
   end
 end
