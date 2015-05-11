@@ -20,7 +20,7 @@ class GroupUser < ActiveRecord::Base
             presence: true,
             on: :create
 
-    validates :user_id,
+  validates :user_id,
             presence: true,
             on: :create
 

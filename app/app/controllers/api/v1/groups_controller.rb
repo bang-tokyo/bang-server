@@ -3,6 +3,7 @@ class Api::V1::GroupsController < Api::ApplicationController
   validates :create do
     integer :owner_user_id, required: true
     string :name, required: true
+    string :user_ids
     string :memo
     integer :region_id
   end
@@ -41,6 +42,27 @@ class Api::V1::GroupsController < Api::ApplicationController
       region_id: params[:region_id]
     )
 
+    #グループユーザー作成
+    user_ids = params[:user_ids]
+    user_ids_arr = user_ids.split(",")
+
+    if user_ids_arr.length > 0
+
+      user_ids_arr.each{|user_id|
+
+        #ユーザーのチェック
+        user = User.find_by!(id: user_id)
+        raise Bang::Error::ValidationError.new unless user.present?
+
+        #グループユーザー作成
+        @group_user = GroupUser.create!(
+          group_id: @group.id
+          user_id: user_id
+        )
+      }
+
+    end
+
   end
 
   def update
@@ -70,6 +92,11 @@ class Api::V1::GroupsController < Api::ApplicationController
     offset = params[:offset] || nil
 
     @groups = Group.limit(limit).order('id desc').offset(offset)
+
+    @groups.each do |group|
+      group.users = GroupUser.where(group_id: group.id)
+    end
+
   end
 
   def destroy

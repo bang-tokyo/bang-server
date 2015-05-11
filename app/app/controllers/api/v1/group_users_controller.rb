@@ -28,14 +28,6 @@ class Api::V1::GroupUsersController < Api::ApplicationController
 
   end
 
-  def index
-    group_id = params[:group_id]
-    limit = params[:limit] || 20
-    offset = params[:offset] || nil
-
-    @group_user = GroupUser.where(group_id: group_id).limit(limit).order('id desc').offset(offset)
-  end
-
   def destroy
     #物理削除にするか検討
   end
