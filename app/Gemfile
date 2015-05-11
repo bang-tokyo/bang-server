@@ -40,6 +40,7 @@ gem 'annotate'
 gem 'activerecord-mysql-awesome'
 gem 'symmetric-encryption'
 gem 'jbuilder', '~> 2.0'
+gem 'weak_parameters'
 
 # For Application Test
 group :development, :test do

@@ -15,8 +15,8 @@ default: &default
   charset: utf8mb4
   collation: utf8mb4_general_ci
   pool: 5
-  username: bang_w
-  password: bang_w
+  #username: bang_w
+  #password: bang_w
   socket: /var/lib/mysql/mysql.sock
 
 development:
