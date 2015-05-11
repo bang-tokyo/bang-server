@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   SEPARATOR = '-'
 
   enum gender: {male: 1, female: 2, transgender: 3}
-  enum status: {active: 1, banned: 2}
+  enum status: {active: 0, banned: 1}
 
   #has_one :user_activity
   #has_one :user_position
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def active?
-    status == self.class.statuses[:active]
+    status_value == self.class.statuses[:active]
   end
 
   def banned?
