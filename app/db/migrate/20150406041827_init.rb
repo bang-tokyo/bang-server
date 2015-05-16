@@ -1,9 +1,13 @@
 class Init < ActiveRecord::Migration
+
   def change
     create_users
     create_user_attributes
     create_user_locations
     create_devices
+    create_groups
+    create_group_users
+    create_group_settings
   end
 
   private
@@ -63,4 +67,34 @@ class Init < ActiveRecord::Migration
     add_index :devices, [:user_id, :os, :uuid, :app_id], unique: true
     add_index :devices, [:user_id, :status]
   end
+
+  def create_groups
+      create_table :groups, id: :bigint, unsigned: true do |t|
+          t.bigint :owner_user_id, unsigned: true, null: false
+          t.string :name, limit: 100, null: false, default: ""
+          t.text   :memo
+          t.integer :region_id, limit: 3, null: false, default: 0
+          t.integer :status, limit: 2, null: false, default: 0
+          t.timestamps null: false
+      end
+  end
+
+  def create_group_users
+      create_table :group_users, id: :bigint, unsigned: true do |t|
+          t.bigint :group_id, unsigned: true, null: false
+          t.bigint :user_id, unsigned: true, null: false
+          t.integer :status, limit: 3, null: false, default: 0
+          t.timestamps null: false
+      end
+  end
+
+  def create_group_settings
+      create_table :group_settings, id: :bigint, unsigned: true do |t|
+          t.bigint :group_id, unsigned: true, null: false
+          t.integer :key, limit: 3, null: false, default: 0
+          t.integer :value, limit: 3, null: false, default: 0
+          t.timestamps null: false
+      end
+  end
+
 end

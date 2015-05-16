@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.24, for Linux (x86_64)
 --
 -- Host: localhost    Database: bang_development
 -- ------------------------------------------------------
--- Server version	5.6.23
+-- Server version	5.6.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,68 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `group_settings`
+--
+
+DROP TABLE IF EXISTS `group_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_settings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `key` mediumint(9) NOT NULL DEFAULT '0',
+  `value` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_rails_dd52c9e85f` (`group_id`),
+  CONSTRAINT `fk_rails_dd52c9e85f` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `group_users`
+--
+
+DROP TABLE IF EXISTS `group_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_rails_a9d5f48449` (`group_id`),
+  KEY `fk_rails_1486913327` (`user_id`),
+  CONSTRAINT `fk_rails_1486913327` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `fk_rails_a9d5f48449` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `groups`
+--
+
+DROP TABLE IF EXISTS `groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groups` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `owner_user_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `memo` text,
+  `region_id` mediumint(9) NOT NULL DEFAULT '0',
+  `status` smallint(6) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `devices`

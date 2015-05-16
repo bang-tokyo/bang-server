@@ -10,8 +10,15 @@
   when: app_dir.stat.exists == False or app_dir.stat.isdir == False
   sudo: no
 
+# - name: make bundle config
+#   command: bash -lc "mkdir ~/.bundle; touch ~/.bundle/config;"
+#   sudo: no
+
 - name: make bundle config
-  command: bash -lc "mkdir ~/.bundle; touch ~/.bundle/config;"
+  file: >
+    path='~/.bundle/config'
+    mode=0755
+    state=touch
   sudo: no
 
 - name: set BUNDLE_PATH
