@@ -22,7 +22,7 @@ class Api::V1::GroupUsersController < Api::ApplicationController
 
     #グループ作成
     @group_user = GroupUser.create!(
-      group_id: group_id
+      group_id: group_id,
       user_id: user_id
     )
 
