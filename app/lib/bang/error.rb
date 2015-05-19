@@ -21,13 +21,6 @@ module Bang
       end
     end
 
-    class AuthenticationFailed < Base
-    end
-
-    class UserBanned < Base
-      DEFAULT_CODE = 20001
-    end
-
     class ValidationError < Base
       DEFAULT_CODE = 10003
 
@@ -39,5 +32,16 @@ module Bang
         end
       end
     end
+
+    class AuthenticationFailed < Base
+    end
+
+    class UserBanned < Base
+      DEFAULT_CODE = 20001
+    end
+
+    class InvalidUserBang < Base
+    end
+
   end
 end

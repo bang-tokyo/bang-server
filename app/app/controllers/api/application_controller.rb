@@ -10,6 +10,7 @@ module Api
     rescue_from ActiveRecord::RecordInvalid, with: -> (e) { render_bad_request(Bang::Error::ValidationError.convert(e)) }
     rescue_from Bang::Error::AuthenticationFailed, with: -> (e) { render_unauthorized(e) }
     rescue_from Bang::Error::UserBanned, with: -> (e) { render_unauthorized(e) }
+    rescue_from Bang::Error::InvalidUserBang, with: -> (e) { render_bad_request(e) }
 
     def authenticate
       raise Bang::Error::AuthenticationFailed unless current_user.present?

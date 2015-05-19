@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         get 'bang/request' => 'bang#request'
         get 'bang/reply' => 'bang#reply'
 
-        resources :matches, only: [:show]
+        resources :conversations, only: [:show]
         resources :messages, only: [:create, :show]
       end
     end

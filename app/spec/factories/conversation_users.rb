@@ -1,15 +1,17 @@
 # == Schema Information
 #
-# Table name: messages
+# Table name: conversation_users
 #
 #  id              :integer          not null, primary key
 #  conversation_id :integer          not null
 #  user_id         :integer          not null
-#  message         :string(191)      default(""), not null
-#  status          :integer          default(0), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 
-class Message < ActiveRecord::Base
+FactoryGirl.define do
+  factory :conversation_user do
+
+  end
+
 end
