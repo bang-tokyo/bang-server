@@ -16,8 +16,8 @@ Rails.application.routes.draw do
         put 'me' => 'me#update'
         put 'me/location' => 'me#update_location'
 
-        get 'bang/request' => 'bang#request'
-        get 'bang/reply' => 'bang#reply'
+        get 'bang/request/:id' => 'bang#request_bang'
+        get 'bang/reply/:id/:status' => 'bang#reply_bang'
 
         resources :conversations, only: [:show]
         resources :messages, only: [:create, :show]

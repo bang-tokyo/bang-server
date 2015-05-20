@@ -12,7 +12,7 @@
 #
 
 class UserBang < ActiveRecord::Base
-  enum status: {default: 0, accepted: 1, denied: 2}
+  enum status: {default: 0, accept: 1, deny: 2}
 
   scope :conbination, -> (user_id, from_user_id) {
     where('user_id = ? and from_user_id = ?', user_id, from_user_id)
@@ -21,23 +21,23 @@ class UserBang < ActiveRecord::Base
   class << self
     def status_from_string(string)
       case string.downcase
-      when 'accept' then :accepted
-      when 'deny' then :denied
+      when 'accept' then :accept
+      when 'deny' then :deny
       else :default
       end
     end
   end
 
-  def replied?
-    !accepted? && !denied?
+  def has_replied?
+    accept? || deny?
   end
 
-  def accepted?
-    status_value == self.class.statuses[:accepted]
+  def accept?
+    status_value == self.class.statuses[:accept]
   end
 
-  def denied?
-    status_value == self.class.statuses[:denied]
+  def deny?
+    status_value == self.class.statuses[:deny]
   end
 
   def status_value
