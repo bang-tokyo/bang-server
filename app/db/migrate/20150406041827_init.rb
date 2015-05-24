@@ -123,6 +123,8 @@ class Init < ActiveRecord::Migration
       t.integer :status, limit: 3, null: false, default: 0
       t.timestamps null: false
     end
+
+    add_index :conversations, [:id, :updated_at]
   end
 
   def create_conversation_users
