@@ -12,6 +12,8 @@ module Api
     rescue_from Bang::Error::AuthenticationFailed, with: -> (e) { render_unauthorized(e) }
     rescue_from Bang::Error::UserBanned, with: -> (e) { render_unauthorized(e) }
     rescue_from Bang::Error::InvalidUserBang, with: -> (e) { render_bad_request(e) }
+    rescue_from Bang::Error::ConversationNotFound, with: -> (e) { render_not_found(e) }
+    rescue_from Bang::Error::ConversationUserNotFound, with: -> (e) { render_not_found(e) }
 
     def authenticate
       raise Bang::Error::AuthenticationFailed unless current_user.present?

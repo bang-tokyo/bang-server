@@ -17,9 +17,7 @@ module ErrorRenderer
     render_error 404, 'Not Found', exception
   end
 
-
   private
-
   def render_error(status, title, exception)
     e = Bang::Error::Base.convert(exception)
 

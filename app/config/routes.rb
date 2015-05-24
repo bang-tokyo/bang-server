@@ -19,8 +19,9 @@ Rails.application.routes.draw do
         get 'bang/request/:id' => 'bang#request_bang'
         get 'bang/reply/:id/:status' => 'bang#reply_bang'
 
-        resources :conversations, only: [:show]
-        resources :messages, only: [:create, :show]
+        resources :conversations, only: [:index, :show, :destroy] do
+          post 'message' => 'messages#create'
+        end
       end
     end
   end

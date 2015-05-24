@@ -12,4 +12,15 @@
 #
 
 class Message < ActiveRecord::Base
+  enum status: {active: 0, deleted: 1}
+
+  belongs_to :conversation, class_name: 'Conversation', foreign_key: 'conversation_id'
+
+  before_validation :check_message, on: :create
+
+  private
+  def check_message
+    # TODO : messageのvalidate
+    return true
+  end
 end

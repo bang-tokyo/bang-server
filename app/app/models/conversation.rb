@@ -14,6 +14,7 @@ class Conversation < ActiveRecord::Base
   enum status: {active: 0, banned: 1}
 
   has_many :conversation_users
+  has_many :messages
 
   class << self
     def kind_from_string(string)
@@ -29,7 +30,7 @@ class Conversation < ActiveRecord::Base
     self.class.kinds[kind]
   end
 
-  def belongs_users
-    self.conversation_users.map{ |c| c.user }
+  def belonged_user_ids
+    self.conversation_users.map{ |cu| cu.user_id }
   end
 end

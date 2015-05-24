@@ -26,9 +26,10 @@ class Api::V1::BangController < Api::ApplicationController
   # status = accept or deny
   def reply_bang
     user_bang = UserBang.find_by(id: params[:id])
-    raise Bang::Error::InvalidUserBang if !user_bang.present?
-    raise Bang::Error::InvalidUserBang if user_bang.user_id != current_user.id
-    raise Bang::Error::InvalidUserBang if user_bang.has_replied?
+    raise Bang::Error::InvalidUserBang\
+      if !user_bang.present?\
+      || user_bang.user_id != current_user.id\
+      || user_bang.has_replied?
 
     user_bang.status = UserBang.status_from_string(params[:status])
     if user_bang.accept?

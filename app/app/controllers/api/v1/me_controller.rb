@@ -1,6 +1,14 @@
 class Api::V1::MeController < Api::ApplicationController
 
-  #TODO: - parameterのvalidateをする
+  validates :update do
+    string :gender
+    string :name
+  end
+
+  validates :update_location do
+    float :latitude, required: true
+    float :longitude, required: true
+  end
 
   def show
     @user = current_user
