@@ -8,6 +8,10 @@ class Init < ActiveRecord::Migration
     create_groups
     create_group_users
     create_group_settings
+    create_user_bangs
+    create_conversations
+    create_conversation_users
+    create_messages
   end
 
   private
@@ -86,6 +90,8 @@ class Init < ActiveRecord::Migration
           t.integer :status, limit: 3, null: false, default: 0
           t.timestamps null: false
       end
+
+      # TODO group_idとuser_idでuniq index貼る
   end
 
   def create_group_settings
@@ -97,4 +103,50 @@ class Init < ActiveRecord::Migration
       end
   end
 
+  def create_user_bangs
+    create_table :user_bangs, id: :bigint, unsigned: true do |t|
+      t.bigint :user_id, unsigned: true, null: false
+      t.bigint :from_user_id, unsigned: true, null: false
+      t.integer :item_id, null: false, default: 0
+      t.integer :status, limit: 3, null: false, default: 0
+      t.timestamps null: false
+    end
+
+    add_index :user_bangs, [:user_id, :from_user_id], unique: true
+    add_index :user_bangs, [:user_id, :status]
+    add_index :user_bangs, [:from_user_id, :status]
+  end
+
+  def create_conversations
+    create_table :conversations, id: :bigint, unsigned: true do |t|
+      t.integer :kind, limit: 3, null: false, default: 0
+      t.integer :status, limit: 3, null: false, default: 0
+      t.timestamps null: false
+    end
+
+    add_index :conversations, [:id, :updated_at]
+  end
+
+  def create_conversation_users
+    create_table :conversation_users, id: :bigint, unsigned: true do |t|
+      t.bigint :conversation_id, unsigned: true, null: false
+      t.bigint :user_id, unsigned: true, null: false
+      t.timestamps null: false
+    end
+
+    add_index :conversation_users, [:conversation_id, :user_id], unique: true
+    add_index :conversation_users, :user_id
+  end
+
+  def create_messages
+    create_table :messages, id: :bigint, unsigned: true do |t|
+      t.bigint :conversation_id, unsigned: true, null: false
+      t.bigint :user_id, unsigned: true, null: false
+      t.string :message, limit: 191, null: false, default: ""
+      t.integer :status, limit: 3, null: false, default: 0
+      t.timestamps null: false
+    end
+
+    add_index :messages, [:conversation_id, :status, :created_at]
+  end
 end

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.24, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.23, for Linux (x86_64)
 --
 -- Host: localhost    Database: bang_development
 -- ------------------------------------------------------
--- Server version	5.6.24
+-- Server version	5.6.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,61 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `group_settings`
+-- Table structure for table `conversation_users`
 --
 
-DROP TABLE IF EXISTS `group_settings`;
+DROP TABLE IF EXISTS `conversation_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `group_settings` (
+CREATE TABLE `conversation_users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `group_id` bigint(20) unsigned NOT NULL,
-  `key` mediumint(9) NOT NULL DEFAULT '0',
-  `value` mediumint(9) NOT NULL DEFAULT '0',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_rails_dd52c9e85f` (`group_id`),
-  CONSTRAINT `fk_rails_dd52c9e85f` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `group_users`
---
-
-DROP TABLE IF EXISTS `group_users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `group_users` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `group_id` bigint(20) unsigned NOT NULL,
+  `conversation_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
-  `status` mediumint(9) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_rails_a9d5f48449` (`group_id`),
-  KEY `fk_rails_1486913327` (`user_id`),
-  CONSTRAINT `fk_rails_1486913327` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `fk_rails_a9d5f48449` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`)
+  UNIQUE KEY `index_conversation_users_on_conversation_id_and_user_id` (`conversation_id`,`user_id`),
+  KEY `index_conversation_users_on_user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `groups`
+-- Table structure for table `conversations`
 --
 
-DROP TABLE IF EXISTS `groups`;
+DROP TABLE IF EXISTS `conversations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `groups` (
+CREATE TABLE `conversations` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `owner_user_id` bigint(20) unsigned NOT NULL,
-  `name` varchar(100) NOT NULL DEFAULT '',
-  `memo` text,
-  `region_id` mediumint(9) NOT NULL DEFAULT '0',
-  `status` smallint(6) NOT NULL DEFAULT '0',
+  `kind` mediumint(9) NOT NULL DEFAULT '0',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -105,6 +79,82 @@ CREATE TABLE `devices` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `group_settings`
+--
+
+DROP TABLE IF EXISTS `group_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_settings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `key` mediumint(9) NOT NULL DEFAULT '0',
+  `value` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `group_users`
+--
+
+DROP TABLE IF EXISTS `group_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `groups`
+--
+
+DROP TABLE IF EXISTS `groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groups` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `owner_user_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `memo` text,
+  `region_id` mediumint(9) NOT NULL DEFAULT '0',
+  `status` smallint(6) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `conversation_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `message` varchar(191) NOT NULL DEFAULT '',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_messages_on_conversation_id_and_status_and_created_at` (`conversation_id`,`status`,`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `schema_migrations`
 --
 
@@ -134,6 +184,28 @@ CREATE TABLE `user_attributes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_user_attributes_on_user_id_and_key` (`user_id`,`key`),
   KEY `index_user_attributes_on_key` (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_bangs`
+--
+
+DROP TABLE IF EXISTS `user_bangs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_bangs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `from_user_id` bigint(20) unsigned NOT NULL,
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_user_bangs_on_user_id_and_from_user_id` (`user_id`,`from_user_id`),
+  KEY `index_user_bangs_on_user_id_and_status` (`user_id`,`status`),
+  KEY `index_user_bangs_on_from_user_id_and_status` (`from_user_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -189,6 +261,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-08 10:58:31
+-- Dump completed on 2015-05-18 14:01:04
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 

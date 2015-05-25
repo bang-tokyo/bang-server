@@ -24,15 +24,12 @@ class User < ActiveRecord::Base
 
   has_many :devices
   has_many :user_attributes
-
   # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
   #has_one :user_location
 
   attr_encrypted :secret, random_iv: true
 
-  validates :secret,
-    presence: true,
-    on: :create
+  validates :secret, presence: true, on: :create
 
   before_validation :generate_secret, on: :create
 
