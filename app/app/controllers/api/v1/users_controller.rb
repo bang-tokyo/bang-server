@@ -1,7 +1,9 @@
 class Api::V1::UsersController < Api::ApplicationController
   skip_before_action :authenticate, only: [:create]
 
-  # TODO weak_parameters 導入した方がよさげ
+  validates :show do
+    integer :id, required: true
+  end
 
   def create
     user = User.find_by(facebook_id: permitted_params[:facebook_id])
@@ -21,6 +23,15 @@ class Api::V1::UsersController < Api::ApplicationController
       render_not_found
       return
     end
+  end
+
+  def search
+    exclusion_user_ids = UserBang.where(from_user_id: current_user.id).map { |user_bang|
+      user_bang.user_id
+    }
+    exclusion_user_ids.push(current_user.id)
+    # TODO : 位置情報などの要素で絞込み(リスティングロジック)の実装
+    @users = User.where.not(id: exclusion_user_ids).limit(50)
   end
 
   private
