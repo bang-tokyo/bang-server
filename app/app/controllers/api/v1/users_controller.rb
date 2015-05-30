@@ -26,10 +26,13 @@ class Api::V1::UsersController < Api::ApplicationController
   end
 
   def search
-    exclusion_user_ids = UserBang.where(from_user_id: current_user.id).map { |user_bang|
+    exclusion_user_ids = [current_user.id]
+    exclusion_user_ids.push(UserBang.where(user_id: current_user.id).map { |user_bang|
+      user_bang.from_user_id
+    })
+    exclusion_user_ids.push(UserBang.where(from_user_id: current_user.id).map { |user_bang|
       user_bang.user_id
-    }
-    exclusion_user_ids.push(current_user.id)
+    })
     # TODO : 位置情報などの要素で絞込み(リスティングロジック)の実装
     @users = User.where.not(id: exclusion_user_ids).limit(50)
   end
