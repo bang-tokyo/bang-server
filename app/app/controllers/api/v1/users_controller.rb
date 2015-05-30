@@ -34,7 +34,7 @@ class Api::V1::UsersController < Api::ApplicationController
       user_bang.user_id
     })
     # TODO : 位置情報などの要素で絞込み(リスティングロジック)の実装
-    @users = User.where.not(id: exclusion_user_ids).limit(50)
+    @users = User.where.not(id: exclusion_user_ids.uniq).limit(50)
   end
 
   private
