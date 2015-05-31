@@ -18,6 +18,10 @@ class UserBang < ActiveRecord::Base
     where('user_id = ? and from_user_id = ?', user_id, from_user_id)
   }
 
+  scope :request_list, -> (user_id) {
+    where('user_id = ? and status = 0', user_id)
+  }
+
   class << self
     def status_from_string(string)
       case string.downcase

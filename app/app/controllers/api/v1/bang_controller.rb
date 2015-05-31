@@ -37,4 +37,11 @@ class Api::V1::BangController < Api::ApplicationController
     end
     user_bang.save!
   end
+
+  def request_list
+    request_user_ids = UserBang.request_list(current_user.id).map { |user_bang|
+      user_bang.from_user_id
+    }
+    @users = User.where(id: request_user_ids.uniq)
+  end
 end
