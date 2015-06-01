@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 
   has_many :devices
   has_many :user_attributes
+  has_many :user_bang
   # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
   #has_one :user_location
 

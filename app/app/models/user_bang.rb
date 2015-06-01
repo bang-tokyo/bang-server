@@ -14,6 +14,8 @@
 class UserBang < ActiveRecord::Base
   enum status: {default: 0, accept: 1, deny: 2}
 
+  belongs_to :from_user, class_name: 'User', foreign_key: 'from_user_id'
+
   scope :conbination, -> (user_id, from_user_id) {
     where('user_id = ? and from_user_id = ?', user_id, from_user_id)
   }
