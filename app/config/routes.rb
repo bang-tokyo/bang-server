@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :api, path: nil, defaults: {format: :json} do
       namespace :v1 do
         resources :users, only: [:create, :show]
+        get 'users' => 'users#search'
 
         resources :groups, except: [:new, :edit] do
           get 'setting' => 'group_setting#show'
