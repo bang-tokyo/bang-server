@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
         get 'bang/request/:id' => 'bang#request_bang'
         get 'bang/reply/:id/:status' => 'bang#reply_bang'
+        get 'bang/requests' => 'bang#request_list'
 
         resources :conversations, only: [:index, :show, :destroy] do
           post 'message' => 'messages#create'

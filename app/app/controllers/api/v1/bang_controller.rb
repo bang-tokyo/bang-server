@@ -37,4 +37,8 @@ class Api::V1::BangController < Api::ApplicationController
     end
     user_bang.save!
   end
+
+  def request_list
+    @user_bangs = UserBang.request_list(current_user.id)
+  end
 end

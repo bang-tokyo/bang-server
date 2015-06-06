@@ -47,7 +47,8 @@ CREATE TABLE `conversations` (
   `status` mediumint(9) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_conversations_on_id_and_updated_at` (`id`,`updated_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -261,6 +262,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-18 14:01:04
+-- Dump completed on 2015-05-30 14:14:54
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
