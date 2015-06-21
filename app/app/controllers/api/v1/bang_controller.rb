@@ -36,6 +36,7 @@ class Api::V1::BangController < Api::ApplicationController
       create_conversation [user_bang.user_id, user_bang.from_user_id], :user_bang
     end
     user_bang.save!
+    @user_bang = user_bang
   end
 
   def request_list
