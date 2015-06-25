@@ -22,12 +22,6 @@ class Api::V1::ConversationsController < Api::ApplicationController
     @conversations = conversation_ids.present?\
       ? Conversation.where(id: conversation_ids).order('updated_at desc').limit(count)\
       : []
-
-    belonged_user_ids = @conversations.map { |conversation|
-      conversation.belonged_user_ids
-    }.flatten
-
-    @users = User.where(id: belonged_user_ids)
   end
 
   def show
@@ -35,7 +29,6 @@ class Api::V1::ConversationsController < Api::ApplicationController
     raise Bang::Error::ConversationNotFound unless @conversation.present?
     raise Bang::Error::ConversationUserNotFound\
       unless @conversation.conversation_users.find_by(user_id: current_user.id).present?
-    @users = User.where(id: @conversation.belonged_user_ids)
   end
 
   def destroy

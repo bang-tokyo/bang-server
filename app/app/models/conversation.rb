@@ -30,6 +30,10 @@ class Conversation < ActiveRecord::Base
     self.class.kinds[kind]
   end
 
+  def status_value
+    self.class.statuses[status]
+  end
+
   def belonged_user_ids
     self.conversation_users.map{ |cu| cu.user_id }
   end
