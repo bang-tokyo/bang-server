@@ -15,8 +15,7 @@ set :linked_dirs, fetch(:linked_dirs, []) + %w{log tmp/pids tmp/cache tmp/socket
 
 set :default_env, {
       path: %w(
-    /opt/rbenv/shims
-    /opt/mysql/server-5.6/bin
+    /usr/local/rbenv/shims
     $PATH
   ).join(':')}
 
