@@ -7,7 +7,7 @@ working_directory @dir
 # FIXME: 4 ?
 worker_processes 2
 timeout 90
-listen '127.0.0.1:3000'
+listen '0.0.0.0:3000'
 
 pid "#{@dir}/tmp/pids/unicorn.pid"
 
