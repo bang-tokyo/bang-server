@@ -55,15 +55,13 @@ group :development, :test do
   gem 'capistrano-rails', :require => false
   gem 'capistrano-bundler', :require => false
   gem 'capistrano-unicorn', :require => false
+  gem 'capistrano-console', :require => false
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'quiet_assets'
 end
 
-group :production, :staging do
-  gem 'unicorn'
-end
-
+gem 'unicorn'
 gem 'aws-sdk'
 gem 'whenever'
 gem 'libv8', '3.16.14.3'

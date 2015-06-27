@@ -1,8 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-require 'capistrano-unicorn'
-
 set :application, 'bang-server'
 #set :repo_url, 'https://github.com/shiruco/bang-server'
 set :repo_url, 'https://github.com/tanarky/bang-server'
