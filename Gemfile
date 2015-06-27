@@ -54,6 +54,7 @@ group :development, :test do
   gem 'capistrano-rbenv', :require => false
   gem 'capistrano-rails', :require => false
   gem 'capistrano-bundler', :require => false
+  gem 'capistrano-unicorn', :require => false
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'quiet_assets'
