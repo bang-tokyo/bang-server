@@ -65,3 +65,4 @@ end
 
 gem 'aws-sdk'
 gem 'whenever'
+gem 'libv8', '3.16.14.3'
