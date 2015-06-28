@@ -2,8 +2,8 @@
 lock '3.4.0'
 
 set :application, 'bang-server'
-#set :repo_url, 'https://github.com/shiruco/bang-server'
-set :repo_url, 'https://github.com/tanarky/bang-server'
+set :repo_url, 'https://github.com/shiruco/bang-server'
+#set :repo_url, 'https://github.com/tanarky/bang-server'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 set :keep_releases, 10
 set :rbenv_type, :system
