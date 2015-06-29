@@ -14,6 +14,12 @@ development:   &development_defaults
 test:
   <<: *development_defaults
 
+staging:
+  key:         1234567890ABCDEF1234567890ABCDEF
+  iv:          1234567890ABCDEF
+  cipher_name: aes-128-cbc
+  encoding:    :base64strict
+
 release:
   # Since the key to encrypt and decrypt with must NOT be stored along with the
   # source code, we only hold a RSA key that is used to unlock the file

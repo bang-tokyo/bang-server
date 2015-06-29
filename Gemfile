@@ -39,7 +39,6 @@ gem 'rb-readline', '~> 0.4.2'
 gem 'annotate'
 gem 'activerecord-mysql-awesome'
 gem 'symmetric-encryption'
-gem 'jbuilder', '~> 2.0'
 gem 'weak_parameters'
 
 # For Application Test
@@ -50,4 +49,21 @@ group :development, :test do
   gem 'spring'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
+
+  gem 'capistrano', '~> 3.4.0', :require => false
+  gem 'capistrano-rbenv', :require => false
+  gem 'capistrano-rails', :require => false
+  gem 'capistrano-bundler', :require => false
+  gem 'capistrano-unicorn', :require => false
+  gem 'capistrano-console', :require => false
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'quiet_assets'
 end
+
+gem 'unicorn'
+gem 'aws-sdk'
+gem 'whenever'
+gem 'libv8', '3.16.14.3'
+gem 'execjs'
+gem 'therubyracer'

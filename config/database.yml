@@ -31,6 +31,17 @@ test:
   <<: *default
   database: bang_test
 
+staging:
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  pool: 1
+  database: bang_staging
+  username: root
+  host: localhost
+  password: 
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
