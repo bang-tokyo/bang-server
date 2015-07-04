@@ -5,7 +5,7 @@ class Api::V1::GroupsController < Api::ApplicationController
     string :name, required: true
     string :user_ids
     string :memo
-    integer :region_id
+    integer :region_id, required: true
   end
 
   validates :update do
@@ -45,21 +45,21 @@ class Api::V1::GroupsController < Api::ApplicationController
     #グループユーザー作成
     user_ids = params[:user_ids]
 
-    if user_ids.length > 0
+    unless user_ids.nil?
+      if user_ids.length > 0
+        user_ids.each{|user_id|
 
-      user_ids.each{|user_id|
+          #ユーザーのチェック
+          user = User.find_by!(id: user_id)
+          raise Bang::Error::ValidationError.new unless user.present?
 
-        #ユーザーのチェック
-        user = User.find_by!(id: user_id)
-        raise Bang::Error::ValidationError.new unless user.present?
-
-        #グループユーザー作成
-        @group_user = GroupUser.create!(
-          group_id: @group.id,
-          user_id: user_id
-        )
-      }
-
+          #グループユーザー作成
+          @group_user = GroupUser.create!(
+            group_id: @group.id,
+            user_id: user_id
+          )
+        }
+      end
     end
 
   end
