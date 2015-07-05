@@ -9,14 +9,14 @@ class Api::V1::GroupsController < Api::ApplicationController
   end
 
   validates :update do
-    integer :group_id, required: true
+    integer :id, required: true
     string :name
     string :memo
     integer :region_id
   end
 
   validates :show do
-    integer :group_id, required: true
+    integer :id, required: true
   end
 
   validates :index do
@@ -42,6 +42,13 @@ class Api::V1::GroupsController < Api::ApplicationController
       region_id: params[:region_id]
     )
 
+    #グループ設定作成
+    @group_setting = GroupSetting.create(group_id: @group.id)
+
+    unless @group_setting.nil?
+      @group.group_setting = @group_setting
+    end
+
     #グループユーザー作成
     user_ids = params[:user_ids]
 
@@ -66,7 +73,7 @@ class Api::V1::GroupsController < Api::ApplicationController
 
   def update
 
-    group = Group.find_by!(id: params[:group_id])
+    group = Group.find_by!(id: params[:id])
     raise Bang::Error::ValidationError.new unless group.present?
 
     @group = group.tap do |g|
@@ -79,8 +86,8 @@ class Api::V1::GroupsController < Api::ApplicationController
   end
 
   def show
-    @group = Group.find_by(id: params[:group_id])
-    unless group.present?
+    @group = Group.find_by(id: params[:id])
+    unless @group.present?
       render_not_found
       return
     end
@@ -93,7 +100,7 @@ class Api::V1::GroupsController < Api::ApplicationController
     @groups = Group.limit(limit).order('id desc').offset(offset)
 
     @groups.each do |group|
-      group.users = GroupUser.where(group_id: group.id)
+      group.group_user = GroupUser.where(group_id: group.id)
     end
 
   end

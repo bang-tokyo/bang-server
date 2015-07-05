@@ -28,8 +28,8 @@ class GroupUser < ActiveRecord::Base
       self.statuses[status]
     end
 
-    def active?
-      status == self.statuses[:active]
-    end
+  def active?
+    status == self.statuses[:active]
+  end
 
 end

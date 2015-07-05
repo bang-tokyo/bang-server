@@ -6,8 +6,8 @@ Rails.application.routes.draw do
         get 'users' => 'users#search'
 
         resources :groups, except: [:new, :edit] do
-          get 'setting' => 'group_setting#show'
-          put 'setting' => 'group_setting#update'
+          get 'setting' => 'group_settings#show'
+          put 'setting' => 'group_settings#update'
           resources :group_users, only: [:create, :destroy]
         end
 
