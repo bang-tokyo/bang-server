@@ -1,2 +1,18 @@
 .DS_Store
 
+# Rails
+/.bundle
+vendor/bundle
+/log/*
+!/log/.keep
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.secret
+.rspec
