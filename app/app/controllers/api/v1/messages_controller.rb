@@ -11,13 +11,12 @@ class Api::V1::MessagesController < Api::ApplicationController
     raise Bang::Error::ConversationUserNotFound\
       unless @conversation.conversation_users.find_by(user_id: current_user.id).present?
 
-    Message.create!(
+    @message = Message.create!(
       conversation_id: @conversation.id,
       user_id: current_user.id,
       message: params[:message]
     )
     @conversation.touch
     @conversation.save
-    @users = User.where(id: @conversation.belonged_user_ids)
   end
 end
