@@ -1,5 +1,3 @@
-# bang-server
-
 ## Dev環境構築手順
 1. init.shの実行
 
