@@ -18,6 +18,10 @@ class Message < ActiveRecord::Base
 
   before_validation :check_message, on: :create
 
+  def status_value
+    self.class.statuses[status]
+  end
+
   private
   def check_message
     # TODO : messageのvalidate
