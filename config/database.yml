@@ -38,9 +38,9 @@ staging:
   collation: utf8mb4_general_ci
   pool: 1
   database: bang_staging
-  username: root
+  username: bang
   host: localhost
-  password: 
+  password: xU84.VeCmg=4=B.g
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
