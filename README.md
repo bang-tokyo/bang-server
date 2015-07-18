@@ -24,3 +24,16 @@ https://github.com/bang-tokyo/bang-ops/blob/master/README.rst
   $ bundle exec rails s -b 0.0.0.0
   ```
   Mac から http://api.localhost.local にアクセス
+
+## production/staging 反映方法
+
+```
+# staging
+bundle exec cap staging deploy
+
+# production
+bundle exec cap productoin deploy
+
+# branch指定して反映する場合
+BRANCH=feature/xxx bundle exec cap staging deploy
+```
