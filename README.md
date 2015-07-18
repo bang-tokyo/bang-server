@@ -2,7 +2,7 @@
 
 1. OS + middleware 設定方法
 
-https://github.com/bang-tokyo/bang-ops/blob/master/README.rst
+  https://github.com/bang-tokyo/bang-ops/blob/master/README.rst
 
 2. railsサーバー
 
