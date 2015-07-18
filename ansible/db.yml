@@ -1,7 +1,0 @@
-- hosts: db
-  remote_user: bang
-  sudo: yes
-  vars_files:
-    - conf.yml
-  roles:
-    - db

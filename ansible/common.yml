@@ -1,7 +1,0 @@
-- hosts: server
-  remote_user: root
-  sudo: yes
-  vars_files:
-    - conf.yml
-  roles:
-    - common
