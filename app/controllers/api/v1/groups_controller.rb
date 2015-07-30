@@ -99,8 +99,12 @@ class Api::V1::GroupsController < Api::ApplicationController
 
     @groups = Group.limit(limit).order('id desc').offset(offset)
 
+    exclusion_group_ids = Group.eager_load(:group_users).where(group_users: {user_id: 4}).map { |g| g.id }
+    print exclusion_group_ids    
+
     @groups.each do |group|
-      group.group_user = GroupUser.where(group_id: group.id)
+      group.group_users = GroupUser.where(group_id: group.id)
+      p group.group_users
     end
 
   end
