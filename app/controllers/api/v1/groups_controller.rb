@@ -97,14 +97,14 @@ class Api::V1::GroupsController < Api::ApplicationController
     limit = params[:limit] || 20
     offset = params[:offset] || 0
 
-    a_scope = Group.where('owner_user_id = ?', current_user.id)
-    a_where = a_scope.arel.constraints.reduce(:and)
-    a_bind = a_scope.bind_values
-    b_scope = GroupUser.where(user_id: current_user.id)
-    b_where = b_scope.arel.constraints.reduce(:and)
-    b_bind = b_scope.bind_values
+    group_scope = Group.where('owner_user_id = ?', current_user.id)
+    group_where = group_scope.arel.constraints.reduce(:and)
+    group_bind = group_scope.bind_values
+    group_bang_scope = GroupUser.where(user_id: current_user.id)
+    group_bang_where = group_bang_scope.arel.constraints.reduce(:and)
+    group_bang_bind = group_bang_scope.bind_values
  
-    exclusion_group_ids = Group.eager_load(:group_users).where(a_where.or b_where).tap {|sc| sc.bind_values = a_bind + b_bind }.map { |g| g.id }
+    exclusion_group_ids = Group.eager_load(:group_users).where(group_where.or group_bang_where).tap {|sc| sc.bind_values = group_bind + group_bang_bind }.map { |g| g.id }
 
     #自分の所属するグループが既にbang済みの場合は除く
     exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
