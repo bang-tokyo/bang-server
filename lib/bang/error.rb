@@ -43,6 +43,9 @@ module Bang
     class InvalidUserBang < Base
     end
 
+    class InvalidGroupBang < Base
+    end
+
     class ConversationNotFound < Base
     end
 

@@ -95,16 +95,23 @@ class Api::V1::GroupsController < Api::ApplicationController
 
   def index
     limit = params[:limit] || 20
-    offset = params[:offset] || nil
+    offset = params[:offset] || 0
 
-    @groups = Group.limit(limit).order('id desc').offset(offset)
+    a_scope = Group.where('owner_user_id = ?', current_user.id)
+    a_where = a_scope.arel.constraints.reduce(:and)
+    a_bind = a_scope.bind_values
+    b_scope = GroupUser.where(user_id: current_user.id)
+    b_where = b_scope.arel.constraints.reduce(:and)
+    b_bind = b_scope.bind_values
+ 
+    exclusion_group_ids = Group.eager_load(:group_users).where(a_where.or b_where).tap {|sc| sc.bind_values = a_bind + b_bind }.map { |g| g.id }
 
-    exclusion_group_ids = Group.eager_load(:group_users).where(group_users: {user_id: 4}).map { |g| g.id }
-    print exclusion_group_ids    
+    #自分の所属するグループが既にbang済みの場合は除く
+    exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
+    @groups = Group.where.not(id: exclusion_group_ids.uniq).limit(limit) 
 
     @groups.each do |group|
       group.group_users = GroupUser.where(group_id: group.id)
-      p group.group_users
     end
 
   end

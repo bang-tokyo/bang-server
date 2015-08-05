@@ -17,6 +17,7 @@ class Group < ActiveRecord::Base
   enum status: {inactive: 0, active: 1}
 
   has_many :group_users, class_name: 'GroupUser', dependent: :destroy
+  has_many :group_bangs, class_name: 'GroupBang'
   has_one :group_setting, class_name: 'GroupSetting', dependent: :destroy
 
   validates :owner_user_id,
