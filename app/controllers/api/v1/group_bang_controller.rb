@@ -16,8 +16,6 @@ class Api::V1::GroupBangController < Api::ApplicationController
     group_id = params[:group_id]
     from_group_id = params[:from_group_id]
 
-    print group_id
-    print from_group_id
     raise Bang::Error::InvalidGroupBang if GroupBang.conbination(group_id, from_group_id).present?
 
     GroupBang.create!(
