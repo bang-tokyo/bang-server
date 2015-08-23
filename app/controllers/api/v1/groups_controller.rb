@@ -19,7 +19,7 @@ class Api::V1::GroupsController < Api::ApplicationController
     integer :id, required: true
   end
 
-  validates :index do
+  validates :search do
     integer :limit
     integer :offset
   end
@@ -52,26 +52,18 @@ class Api::V1::GroupsController < Api::ApplicationController
     #グループユーザー作成
     user_ids = params[:user_ids]
 
-    unless user_ids.nil?
-      if user_ids.length > 0
-        user_ids.each{|user_id|
+    #user_idsからuser modelを取得
+    users = User.where(id: user_ids)
+    users.each{|user|
+      #グループユーザー作成
+      @group_user = GroupUser.create!(
+        group_id: @group.id,
+        user_id: user.id
+      )
+    }
+ end
 
-          #ユーザーのチェック
-          user = User.find_by!(id: user_id)
-          raise Bang::Error::ValidationError.new unless user.present?
-
-          #グループユーザー作成
-          @group_user = GroupUser.create!(
-            group_id: @group.id,
-            user_id: user_id
-          )
-        }
-      end
-    end
-
-  end
-
-  def update
+ def update
 
     group = Group.find_by!(id: params[:id])
     raise Bang::Error::ValidationError.new unless group.present?
@@ -93,7 +85,7 @@ class Api::V1::GroupsController < Api::ApplicationController
     end
   end
 
-  def index
+  def search
     limit = params[:limit] || 20
     offset = params[:offset] || 0
 

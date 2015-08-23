@@ -5,11 +5,12 @@ Rails.application.routes.draw do
         resources :users, only: [:create, :show]
         get 'users' => 'users#search'
 
-        resources :groups, except: [:new, :edit] do
-          get 'setting' => 'group_settings#show'
+	get 'groups' => 'groups#search'
+	resources :groups, except: [:index, :new, :edit] do
+	  get 'setting' => 'group_settings#show'
           put 'setting' => 'group_settings#update'
           resources :group_users, only: [:create, :destroy]
-        end
+        end	
 
         # user_idをパラメータに持ちたくないので自分の情報の
         # 取得、更新用にme_controllerを用意

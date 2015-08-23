@@ -25,10 +25,9 @@ class Api::V1::GroupBangController < Api::ApplicationController
   end
 
   def reply_bang
-    group_id = params[:group_id]
-    from_group_id = params[:from_group_id]
+    group_bang_id = params[:group_bang_id]
     status  = params[:status]
-    group_bang = GroupBang.find_by(group_id: group_id)
+    group_bang = GroupBang.find_by(id: group_bang_id)
     raise Bang::Error::InvalidGroupBang\
       if !group_bang.present?\
       || group_bang.group_id != from_group_id\

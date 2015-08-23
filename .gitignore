@@ -8,6 +8,7 @@ vendor/bundle
 /db/*.sqlite3
 /db/*.sqlite3-journal
 doc/
+app/log/*
 *.swp
 *~
 .project
