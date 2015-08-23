@@ -12,6 +12,7 @@ class Init < ActiveRecord::Migration
     create_conversations
     create_conversation_users
     create_messages
+    create_regions
   end
 
   private
@@ -21,6 +22,7 @@ class Init < ActiveRecord::Migration
       t.string :name, limit: 191, null: false, default: ""
       t.string :birthday, limit: 10, null: false, default: ""
       t.integer :gender, limit: 3, null: false, default: 3
+      t.integer :blood_type, limit: 3, null: false, default: 0
       t.integer :region_id, limit: 3, null: false, default: 0
       t.integer :salary_category_id, limit: 3, null: false, default: 0
       t.integer :status, limit: 3, null: false, default: 0
@@ -149,4 +151,12 @@ class Init < ActiveRecord::Migration
 
     add_index :messages, [:conversation_id, :status, :created_at]
   end
+
+  def create_regions
+    create_table :regions, id: :int, unsigned: true do |t|
+      t.string :name, limit: 100, null: false, default: ""
+      t.integer :status, limit: 3, null: false, default: 1
+    end
+  end
+
 end

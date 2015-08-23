@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.21, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.19, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: bang_development
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.6.19-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -156,6 +156,21 @@ CREATE TABLE `messages` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `regions`
+--
+
+DROP TABLE IF EXISTS `regions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regions` (
+  `id` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `status` mediumint(9) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `schema_migrations`
 --
 
@@ -243,6 +258,7 @@ CREATE TABLE `users` (
   `name` varchar(191) NOT NULL DEFAULT '',
   `birthday` varchar(10) NOT NULL DEFAULT '',
   `gender` mediumint(9) NOT NULL DEFAULT '3',
+  `blood_type` mediumint(9) NOT NULL DEFAULT '0',
   `region_id` mediumint(9) NOT NULL DEFAULT '0',
   `salary_category_id` mediumint(9) NOT NULL DEFAULT '0',
   `status` mediumint(9) NOT NULL DEFAULT '0',
@@ -262,6 +278,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-28  2:02:35
+-- Dump completed on 2015-08-22  0:02:31
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 

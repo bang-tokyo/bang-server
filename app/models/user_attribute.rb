@@ -12,7 +12,8 @@
 
 class UserAttribute < ActiveRecord::Base
   ACCEPTABLE_KEYS = [
-    'self_introduction'
+    'self_introduction',
+    'self_introduction_long'
   ]
 
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
