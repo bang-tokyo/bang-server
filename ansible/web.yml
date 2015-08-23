@@ -1,9 +1,0 @@
-- hosts: server
-  remote_user: bang
-  sudo: yes
-  vars_files:
-    - conf.yml
-  roles:
-    - webserver
-    - ruby
-    - app

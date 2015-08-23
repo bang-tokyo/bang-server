@@ -1,5 +1,0 @@
----
-# file: all.yml
-- include: common.yml
-- include: db.yml
-- include: web.yml

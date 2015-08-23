@@ -80,6 +80,28 @@ CREATE TABLE `devices` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `group_bangs`
+--
+
+DROP TABLE IF EXISTS `group_bangs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_bangs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `from_group_id` bigint(20) unsigned NOT NULL,
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_group_bangs_on_group_id_and_from_group_id` (`group_id`,`from_group_id`),
+  KEY `index_group_bangs_on_group_id_and_status` (`group_id`,`status`),
+  KEY `index_group_bangs_on_from_group_id_and_status` (`from_group_id`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `group_settings`
 --
 
