@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.21, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.19, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: bang_development
 -- ------------------------------------------------------
--- Server version	5.6.21
+-- Server version	5.6.19-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -76,6 +76,28 @@ CREATE TABLE `devices` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_devices_on_user_id_and_os_and_uuid_and_app_id` (`user_id`,`os`,`uuid`,`app_id`),
   KEY `index_devices_on_user_id_and_status` (`user_id`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `group_bangs`
+--
+
+DROP TABLE IF EXISTS `group_bangs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_bangs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` bigint(20) unsigned NOT NULL,
+  `from_group_id` bigint(20) unsigned NOT NULL,
+  `item_id` int(11) NOT NULL DEFAULT '0',
+  `status` mediumint(9) NOT NULL DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_group_bangs_on_group_id_and_from_group_id` (`group_id`,`from_group_id`),
+  KEY `index_group_bangs_on_group_id_and_status` (`group_id`,`status`),
+  KEY `index_group_bangs_on_from_group_id_and_status` (`from_group_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -262,6 +284,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-06-28  2:02:35
+-- Dump completed on 2015-08-01 15:59:41
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 

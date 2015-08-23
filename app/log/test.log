@@ -1,0 +1,693 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACNHiqU+l9qZkjgwg1vFE++fbJJwl+aE6FLh9HUmIiLeey40hmKp+gZvskGD47u17erHAxXS+dg7kn6LuXJB98B', '2015-04-11 10:34:46', '2015-04-11 10:34:46')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACgq7U0Tvb2wv0s1uOHqiZbWx3OsbWmjsAu+MskbcYHSXx9FAkDols7cOVeVGaUiZYQWRJGUEWqMzf6UO7E0b0q', '2015-04-11 10:34:46', '2015-04-11 10:34:46')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (2.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACJNhKX5H3Ezd/ELTMyd8tKhNyJsYsCUQReYiWKiJdaBAFflggbx7ENert2y7dQZ59fUDo6SOvrg+gqZjCcBfj1', '2015-04-11 10:34:46', '2015-04-11 10:34:46')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACWzIJ6DMDvwVTlzGVXKrvnUJc/5ZwtCdjIeUkU7/iG4zjxk4HuiIp4P5ODhsSayD7/wdYbJAm3dyKjDkU5wNKG', '2015-04-11 10:34:46', '2015-04-11 10:34:46')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEABJPEKtzFYp5SE8JKa/NBqYyPAIlu22o/ez4EnsMoK2Hp7ubiTefEoyQc/45V/fo9UPWIW7BXnanb+/nXCuvHrf', '2015-04-11 10:34:46', '2015-04-11 10:34:46')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACfKEv5b2rpt7cXZQotV+FlU5iqv8JEg0qoPuxQ+SafgL3A5smtzDWGtYp/8D2a6R5zBr873AC/lkXm4QB0jmM9', '2015-04-11 10:34:46', '2015-04-11 10:34:46')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACQCE93IYUW+h9c6ZuWUVkxC7YnGWY7vR5y9xZKhheegOq+B+ioZhvyEa36H56pJLiGxM1AgADq8cZORwF0v93Z', '2015-04-11 10:34:46', '2015-04-11 10:34:46')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEADnQZAsWoulxQPxxOr47PxrQiEaXRZF2xswP0MRAoIlgaIKm7LVtq/4dg/1NrgrqMDcPeHUkv0i4rbcuSzm2XA8', '2015-04-11 10:34:46', '2015-04-11 10:34:46')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (38.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (10.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (11.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABSDuPjXGpCm5ns7P2eR7HGVZOaXIVEjxJmWOdT57xm1/0xoQUIxr8UQuAZ/V1566k2CHQJIYDd4ptAW0uoC6+p', '2015-04-13 13:08:48', '2015-04-13 13:08:48')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (8.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (7.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACtv2zBGpLQIY+ZHx3M3kFuASx29sUmyIIY+4Ey7x93UzHfIOKIKzrPL0MM4slu4I2wfJkz9Pk50fkukTPQDPgt', '2015-04-13 13:08:48', '2015-04-13 13:08:48')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (20.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (63.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACr1AcenqTHExZ2ecMYTOJGSI0Uwm0vBGXFNyTP6yj4ptR0qFZ2oihnD9WvpjALC5vMkhBPkBHtBE3f4HhRV3vN', '2015-04-13 13:08:48', '2015-04-13 13:08:48')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADQ2pkgfJbhiJKLbeAxkfbYyxWNctBaGmH1id60i2EqnIRb5YyUOC4pws+VWBDrjGxA0Vy90IjxrtVeTuaznFS3', '2015-04-13 13:08:48', '2015-04-13 13:08:48')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEABXiK4X45UL2KjihAYmlDlMli2AsXGO2Aoq/J2WkGelU+CEarndRAZa462DusnMIHrYX+aykdacgvN0rUXwtJ/Q', '2015-04-13 13:08:48', '2015-04-13 13:08:48')
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEADBORpAOe/OcBKJmAgTRPX3qV4w2Wr/cJTcW9+4++0s/TkeGG/OKkACGxWp10yV8z/ZI1NcbO7VOxs9oAlDeKGZ', '2015-04-13 13:08:48', '2015-04-13 13:08:48')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACuFdE3okH+xVjQtpqT/sJp99z6MxL1jIjlUIW+jvsGUzBA70CK6MgkBW7/0JuV1egWAJ4Yb6LpGxjsDnrsZ+UB', '2015-04-13 13:08:48', '2015-04-13 13:08:48')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAC8zxIcGtkt8TgC33W+0GMyBxX0U+brLJhava2XojPNycxZj7oKoUcEmeJZNz2OUBKEL068zC7rWPNnMK9oudWI', '2015-04-13 13:08:48', '2015-04-13 13:08:48')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (20.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADDkNVMIMnjM0vFmJyVfQg7vslcFQXc6bDGLLMfxJmWPu/peNnnIaFVEsamcQkwJ2OszFUX2VrnWAM8J+Uehi1g', '2015-04-13 13:10:36', '2015-04-13 13:10:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (6.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (12.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACzftFNQAZcnoqMB5UYySDtnnzX5MQ33fssO/TP8+aovF2ZOiEXCYIllusHW6yEDT8PUELAK21DzPGIUfTAgYtN', '2015-04-13 13:10:36', '2015-04-13 13:10:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (36.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAA4x8Aqba+zdQnTEGZ2CmZlyFJATbWTatDZVf72FbiSIpmgaG/zFKS5xmnSQQZONhgQtxLWvMUwrJwiA1e6CdVn', '2015-04-13 13:10:36', '2015-04-13 13:10:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABL+hTI6hsS1zuA9zsxDCigHWOi0Bv19zKk5tvc3L7zGsNpLAc5z0oPkJh6wU8ZpS3lkLkEyda/tDMEkZlbbWal', '2015-04-13 13:10:36', '2015-04-13 13:10:36')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAUG8vDj2eizJcMowsAnFA1QkaGuLpJUvAsmAfDXHS3jEwoUhGUXMNfOF/TFuqtOtrCJXMTR03jqK2K949CjbSn', '2015-04-13 13:10:36', '2015-04-13 13:10:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACGLzM6b5lNt0j3lb0BwAUwnKIAv52SHrp5OIuELiYa+hlU6uTnTWQLu+wGEHwR2oPFPkKs0FmcVjrayrCSvlsc', '2015-04-13 13:10:36', '2015-04-13 13:10:36')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAC1i8qi4UPB6bRsCqvu1DQSi5MqClJrmrwlKacG3DZvToyR4fBoAeeQNKurmG0k/uHSrpvLbDueSfFn9hfPVOTD', '2015-04-13 13:10:36', '2015-04-13 13:10:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEADYdQhm/d19DfeNmlx0VsYC/XT4crPY6sHpDCxFatVooxKupETmg1rtQTTCznfAlVNQpgFwdQCbyX8dvz7jNnjX', '2015-04-13 13:10:36', '2015-04-13 13:10:36')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADYH5FV+mc5ytK22Fw5JwNl+yhHBkZxEJ5n6AqDKE+XyrXSyOiQ2sjB1F6yOFFlkZUX174EEDi8RgyVsoNfSWpH', '2015-04-13 13:10:45', '2015-04-13 13:10:45')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (9.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAC9j3a6D4IsBabvlLdU/ATf52CavhPBEsQiuyrsJv5HCU6uh+wFZuklxBc2726bimANWjkL4ggYfMUMfXnTe7qB', '2015-04-13 13:10:45', '2015-04-13 13:10:45')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABTvoOqXdNxH93/Dbdl6hfDmjDLWXYMItkrNc2oHLPGMQtq5Hgj/pKELT4T8a3Za4aa5VKXIgqBAMIZRuNfve3l', '2015-04-13 13:10:45', '2015-04-13 13:10:45')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABYxWJV/zsVSOb8NDSAOMSSxnu+MRXpXixRCh6Q7S2Rxl/ZZf/gvvPbth+v2a0lKGOUk4bcZ0T1SvcA8nqZqKDc', '2015-04-13 13:10:45', '2015-04-13 13:10:45')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEADcmcVPG5RlrfCaOKVEejCb1MeKIAq5MRvjdT+M/HxA+6tjpIjwM4tzV0Gvd30utB1W0wOcESUyrnKOiZ2zBOq0', '2015-04-13 13:10:45', '2015-04-13 13:10:45')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACD7YjgAvqw6SEka2ctvRLfMblfsVH9EbcC96UdLrWpDvPRkmBUII+vdcmiPIVoOWxv9hsqrI/FLGfxwlMvgLIE', '2015-04-13 13:10:45', '2015-04-13 13:10:45')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAVGfQYPaehm7ZDUTQsHUP4DlB/hjhOeZe85n2tMPcW5dcljA+0GDJBJM9pvs/cDO2QcMjFUQaCXFCixkKSrX1V', '2015-04-13 13:10:45', '2015-04-13 13:10:45')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEACx4+6qTaK5Yv3pFB+dobNEwCV2XGYhYPF+zdr7u9snqklUWumNb3fWAXlPnFmxX5L5cLMVfXMSgNy7/WGoqrW/', '2015-04-13 13:10:45', '2015-04-13 13:10:45')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (9.9ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACu6zoR3eD9iUlam8wl74kKs0V9BxmC31E7HunKxSDmiITbP+ifZHXYNhqSSRjQ7Fs638R4oZ8DdI+V/M4+vJb0', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACamjVeSG9qYlUjUBz1cqq8nd0iXtm0xe0+Rd6JAVtpfsCcToxBckUcGlRNc5sIIp2JpfAt9qhmnIKUHDVwpSOH', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACwZrhTKDvgttMaO2JRNilE5MqypLmUDFb5QG1pzAnoJ8YZpgBSbQL2DRDumM9X7aT4q3LlFG+G9eirsQzTSk+N', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAB/Q/5CJpqxXSs6V6SvITRZDbCisBw4zfWBs3Ed8OWQ8uasLwOsDNJI4/TbQBsnjxPsaeAuMvzw4AOg1KnHzjQf', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAArtLq8g2qvtBivQSIlMs0VY36QgaVLh+I0vanLuHfJ4Kx+WwpLRmKh3rsAL/Dp5SJvs/6XOLOU6O2H/ImW0j17', '2015-04-13 13:15:58', '2015-04-13 13:15:58')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACtkrs2vHkLUf8R3/4VlNVKv1MDPhm1f78Mddte9VVOuWl/o26VlzpYXvsJcNw3anUu6itvmlyHwtOX16wC0Cbf', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAA6uQ4gvTNNvGquR0mFnE66zWzuyYM5Cb/3B98UuDvAtr1G3wGCLXQQyc4iozB4jeVKSj49onbPWAc96W7pkfxf', '2015-04-13 13:15:58', '2015-04-13 13:15:58')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEADpQtwP723dcff31wiPo7651NGySbOBu73k1rpRXckqKIhb6xmG47/NBpzHlCS9PP5AxHx02gQes7yQnL067F4t', '2015-04-13 13:15:58', '2015-04-13 13:15:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADIv6E5zbfT/eSp1LQpFe0B3zZ8KmLv3qgb+6x8GUO8nXx/QUvs+MRNi3pi00YiQD+J80tj5Sbbe/crs3/FVDjV', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAYIchnCP+BgpUN/enDR6iN8eigtQvPocX3mYzYbl2hUAR4HauUWfUpgXNx+ku1UCicw3r3Bcd0vI6OQAO5Qxt8', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (14.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADj2fUhclr5XMxVB8cpvhFbcFbEBEcW2ubnlbxfatAQHeY5cmNKUAP62VxzltfM020RblnmCMsiPgfboJIvMZFW', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADxCMhtBvUNs2XoJ3ap2FabfZKPTYHcmlLubhMHmxERtfnn2Vmm9zmfJpuMXs1HyeiC0uqztrtAUqbKfWEiHEzy', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAfD0vG9wYalYV8BNZYkxaKD+w6fzVpe/PIhicac7Y3uEjx1l1vlvW1aE6WF6npgP1zdEXLXEuUdPj3qmH2VgMG', '2015-04-13 13:16:55', '2015-04-13 13:16:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAD2KdE7K7zUg9UBj4btLuUBDjjnAq0gsqmDgU4lEcn3nG3rolO/kIlNaXi0Ljdg/RsdrkDLo0U04geCGqljJe1C', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAWY5oYUq1NcCVCw5WgJ2R6Jwuszww66ISOrZC2qRtp/tNi1TNVkZ4IOupkkTQ56fVSN4k8G4Ewb2t7c8r0rSzK', '2015-04-13 13:16:55', '2015-04-13 13:16:55')[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAAJxOCHfF2jWxN4RqQ7IDkEX5jlnVWJ9FDK8dTiIrm8C7jjS7+I3Ziraz0KvBVU6pXRHAXWB4RdQsMMKcOiFSoT', '2015-04-13 13:16:55', '2015-04-13 13:16:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABP451DeydePG4MQFvQ7J3RkOLthZN7pcuTAzupJ7CxDhbc2KljhQtxWQVQISXqHU1vfoNUFrnbGgUveXeFPl1T', '2015-04-13 13:17:24', '2015-04-13 13:17:24')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAP/uK+Mmdq7eVXBYANFfT2OjA3vSEhN+R7QNraRRyYa3ixHqLq134a6F7ocIgvX3ytzn+M5FtCb2BmmsDucSxZ', '2015-04-13 13:17:24', '2015-04-13 13:17:24')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (5.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABZ8WizOJhBRWxxtVbol2nYf5RB1g4s9Lz3U7rWQ2APlsopewppw9RShByOqqERJFlyJ0GU84FkpuRfXqf419wT', '2015-04-13 13:17:24', '2015-04-13 13:17:24')
+  [1m[36m (0.7ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACbqCn4WsMwuVrsr8mSF9AGEOP7+jBNxI1xReCKH05XTbVxlFSsYQmSKVLBNEZUByYWsVVjtxKbMjmal5oyn9cA', '2015-04-13 13:17:24', '2015-04-13 13:17:24')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (9.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEABUCO/eyauQ+v/rPzOjR82MfAVaRdttDF9/vrl/3Wi6QB+F6/ydJxAnWzvrCf4tzTj5LTwVEZhmoTbKXr8HETp0', '2015-04-13 13:17:24', '2015-04-13 13:17:24')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAAEyOmGqEvsHsOXQQu2fqvfOKSVJgqzLKF6fdADjgbRyNQf3+YDj92BWQiddH3NQDpniDVFQO/2+IVyoHvW/dVz', '2015-04-13 13:17:24', '2015-04-13 13:17:24')[0m
+  [1m[35m (0.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAC0sgazw4N/FSB2uB8oc9efsbi84h3BehtqXsn4eCZAKwfR8FpAkqSic41Be94qP1BFo5IQEr3CBLhG9GL6BUhx', '2015-04-13 13:17:24', '2015-04-13 13:17:24')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEACcETk2dlITSR2hRSCbghhDvtyReWgh6p3HYNvOdVi+U/DyWDFi9AegfVym2wZVa4Qy+xfPuW2yzeh9XPbSxduw', '2015-04-13 13:17:24', '2015-04-13 13:17:24')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACXdKGeYA2Lg9JIdwJvUlQ5i5LmNo8cHO4D6EeMwloDKPDmgrAcQ+e9FNQqNYZDNsgN9i05SW6OG644wnZyh1j3', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADiwdIScrTjccorA97vQwMdBQJ0v8gWEu3zCzyPxb9hx7MSrwPJXBDB+27ohvfkcc9ufvR39nJOVuOf1Mb519Ee', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (3.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABFZ7xzzGCIy4c8d694IFKh156QMxU9EyqXXnWx7olNrIQPm4vgld6gCu/nmdxuHHkREr8sqqka3DFZCHIikpEr', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAh5gzxJTVKHPbITGHGNzVlHL79dkNrYeuyZ7ekBOVlEgfXTZ8lbRiQTdRegEucx3pSVYtrndamKjI4ckJUsott', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAXa46FeK9fItWsarIuATGmk/cqL0KWcQlmtwkt/j6uVRbSkJT0pzJJdQy1HeUba7pi9pXkvIsb9R39gS4IVDoy', '2015-04-13 13:18:10', '2015-04-13 13:18:10')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (9.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACDFRSL6ChJN8Ggwfqg55AzfA1pTk9MpDOcFGZCeZ/YT21n8R2hDZ3zCshCgjK4qf4/wbRd2BIIDuwov4pNW0Td', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAASKjs17/d1Mbx5jkJgxm9nOGzWDsxfF6sPRRQVgeW/d40h0e1EPO5itMiYoxvai8Wjs40uprjgevj766Vfg9De', '2015-04-13 13:18:10', '2015-04-13 13:18:10')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAAZN4Z/FmSglZo4ZHupe0Fzi6L3pYEWZjumfFwQx5PjKx4MMv/EYxQsbyG2VqI0KLwglzFEyV/jQhN79L0vE9ZE', '2015-04-13 13:18:10', '2015-04-13 13:18:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADoQ+KR7v1ls6CkRA3dtVgjApd5lFjqPbEQgOHwlwH3oHjbh0ONy/OvVgcCWOGCzVAqrktTWm7uxyJ+//bQDfHw', '2015-04-13 13:23:13', '2015-04-13 13:23:13')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAP1Z43I4o0Sg73uX/Voi//TV6l70bhFEiwW2Q1jKyqvQGMaKB9WuuYPaFCVUH48K9hR413MbZK1po4aVMGsoC4', '2015-04-13 13:23:13', '2015-04-13 13:23:13')
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (8.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACLGXf/d2usOm1+QJ+WqqGMqHq4iRIFiHDega3HRilnRuNQRBh8fcboVLqRxdbQgFQ5zqAdh0MM4iUluuzqUOs5', '2015-04-13 13:23:13', '2015-04-13 13:23:13')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAD6xcw6YcezxIxoE47NQLAVWdabHrWHjAtlAlHNFMLEDWg7zgcu2xvJg5Iwq22U2TB2msh/VdN8TD6F/bYTb9r+', '2015-04-13 13:23:13', '2015-04-13 13:23:13')[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAAqpToVOB96Ku0adUOYFMOzd8gNgrhpdCEwCNWqglVGTDIrQWU3Xke+bL4Zg1NIVAKyCdsSp6bY419NhdX8fl1O', '2015-04-13 13:23:13', '2015-04-13 13:23:13')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAjX4Vve/vN0PD3fh1vrxsdXYaA76nzKANYH0yMPQsgBhqKYx+snqxU1CKETVSmoeULMknNj0sJ3L0zhFiyUN7B', '2015-04-13 13:23:13', '2015-04-13 13:23:13')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (13.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEADnBkGH+r2bEd1xZA3EjPP2A7pgMfzZPiJG9FzDPF8TZz92K5mMIdIUlb5St08jxfcRGksoLfHOxjphV8O4Neyk', '2015-04-13 13:23:13', '2015-04-13 13:23:13')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACUMHPzFZktVeosiQRkcdBEB8nhnde4qyYuM3IG8ViT/hQEiD15WKRH7Hs+AW+wVnQj3hIo6JPgOKBlA7dJ1iwI', '2015-04-13 13:25:15', '2015-04-13 13:25:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABp0QW6o0VZUvS82Lpii6cqFxXpSINeKqVk3eMd8tVGYLPYkZp0ZWvA9Zex5d/2ho6HUDwoVYYssW+ltDXdGBFM', '2015-04-13 13:25:15', '2015-04-13 13:25:15')
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (18.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADRbxN3XqH3S08QghYWcfF9LSOj+bbk/dB/WfdYwUI3vmf9s7VIxf6kf+eZXGmrwFM2tuYlZ/SYfMBbJipG8+VH', '2015-04-13 13:25:15', '2015-04-13 13:25:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAis72X+v2hCpTp54W3+TkNsnkALQmL7cn2OLIJieRmC/J/OfFhSLeWPO27v4jP/gCpLyy5f6udJkOy8C3HZJpP', '2015-04-13 13:25:15', '2015-04-13 13:25:15')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAD5IlQ5VCMoMl1XRXYDUgHBCQaXlB993CuEink2wgvSWdJDjR9hNGoGoqElGS7FR/uvblf8xFjYWxa1QThzUq9j', '2015-04-13 13:25:15', '2015-04-13 13:25:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEABEq9MRDxMRp3UwI1ozpRnRpcY6CWohU9RkDemZJDu3CniutzleAyHY7IiaqmUbGda7RptThmIDxfAVO6vUxIqi', '2015-04-13 13:25:15', '2015-04-13 13:25:15')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADshj4iGGUsMhedjQDXCInaOmeF+IEG+I8kQxMifM1fOE8NvVbD+vPSt/Dt4dezQjA1Mbc7Yta8G2QV0oUaeiin', '2015-04-13 13:25:15', '2015-04-13 13:25:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAD33hMZ1wsE8rjVTDxR/nv85kuK9WrLiI4QRLDzt7B/ilC8xIIoR52ZUSFx0DzbgFegvfN8pJ7Nkgsd1LycqTiq', '2015-04-13 13:25:15', '2015-04-13 13:25:15')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAB9NClVpOfsxkbou6N+5xB68vZeWYEJ7byhT/gSngtxz4na3kSACEyWSupbcqrWIiv14UB/eKU6qzJGMv/LIqAK', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABlJa7pIOCjEfEasZDeHPZM7hP0TAahGs3/tm+dmZKQ5PNgI99fiPdsUbqN4e/9Gktl5qO0310+RjJDTIJSDOnm', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (9.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.9ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACa+6mUmGqC+TU8CqHO+ot5tAPwJghMjqjtq6JNQI+TLh9vLnodXwovNaXMqnXZAegJv+ZffM2y6p3+YEZDMiAc', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADOBv/IWOW7EXkkHyRGQfw5P2ZD2UueksnQGOAzvWg/YKDhf4IXCeQt1rV9Gs3P8RHzI+JJkBXXYUtEp7LsVfT8', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAneHklpDSojRWslYa2Jq09sLXnqzrXVn8377Sqxrf+bdEf+2wTEGnxkOJ5/lMuCUEs9XVzjbbklYDXPK+q6Zpj', '2015-04-13 13:25:29', '2015-04-13 13:25:29')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (9.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAAbv6ZJdzPYaZwleAPrTxtZ9govOWgj5mP27K9frKQS8AV51Y2Ut3Cgxo0e04+Wlg7R1IfMLBgZGZsmtoYzgeoK', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACJwPr0K8nzgzxUI8eYwurlKIPG5ABJFN6+MTvBKVO2AFSnEgsoOmu6uTH6tWhlv7wbu2nvJoJvr/NusVwZhxEy', '2015-04-13 13:25:29', '2015-04-13 13:25:29')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAAn65FodUqzdASEh39FgjQoHvAi8ZutRbOxWNSbHj9dQIk+yb0Tek9kfNqa53lgavjQJ4thr5MkJW9itpVpClL0', '2015-04-13 13:25:29', '2015-04-13 13:25:29')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAC9ERBz3TYytY5kBgp4qoLg4FoD3k5VqSMRkHh+AoCg4N3CczxassJ+tC/wt0TiHmLCaBhHHDMBjMlY66TzPx7k', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADoaHwwiXiPswzbPnHdyNm2Qk2q3LgVmwhfz7xR9l3XzCLL4ati9URWiKojXZP6q6vgBWmXNk/hbKXMM172PZFQ', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (16.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADrlycjO4vhelmYG1HqiHjo/empmgHZrDjnQtIzoULKfgZLFKIGvjhxNbsr5KRRonfGXVTNFgKlSvWTq/UpUTYm', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAvBC8013wFLZuoSsOqUdbAPeuMdequ5C2H4ytMiA+zGxLodEB/xOvaJnPwwZCM5FUHtW9prrzWn13J/FYTHb6b', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAC0Gydaah2J4u06Gqyh3HvwB2jZlSoqVJVfDzT8M41IWMoUORces3KtDYssYRV5zLFJAZq34W+o4hydndTxqTts', '2015-04-13 13:27:43', '2015-04-13 13:27:43')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACsDz2ZimiKlWgR3tc76Fq17uhU0gy5dvDHfB7TlQle73O3GGJtial4Oa36q7MBsMWqF+2t6PEf2vs1T/5IcH5H', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADE2e8Zi56AnJAqj2S9/q3EZWToZegCOH4JEGTfGQWSmWHUsPljShc0eFmKdMt0YUmxDknLUDWpnUqxb5JuQ+33', '2015-04-13 13:27:43', '2015-04-13 13:27:43')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEABq0AuFJXce7ArHP2+CZlnyHnjh3nvT+AtMpLZrcxbl9CpZSZPKYed1zfJg15BVjVIDTwgCAjawOhiZM+HOobMO', '2015-04-13 13:27:43', '2015-04-13 13:27:43')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAp39xG88Xj0qC0hjBLDSS6ZWOuQO8E8cNUlKMlfE48axqVQBaU1qlupuiqcyHHKnwwKfruZ8TnegI0czTT3u9+', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (2.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABQLNqYVBzdeyphSHwy8HvrttGl2vIpHlpj3uwTs7+6aYHymLM3qO+Utl5Rv2O3X/ZCyiE02cQT5DUkvxIk8l4c', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (1.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (7.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADQEO7axavvZtkE6n1tFxJwpCpTpRVDqYKCl6Rat5sIN4LMX795PXATLJumysfNPcd5GdFER6ITUYGED/Pn+mhu', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEABbYrKv3b3Kab5QNZBk0BxDFGcv+Ka8hYlDK1flQTjbTngVXEjg5e7IEbtvopq1W1SLbLaRTSasfJ58qcJOzXo2', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAA2N0/9ADhV6WyjJdXb3ddnyDVNtsdUzMna/IjQHTKaN3epuL48ujwJuJ5k78Q7BtiVLGMrVMJOd6ro+mXty75B', '2015-04-13 13:33:27', '2015-04-13 13:33:27')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.5ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAAg2W1MK+dw/2WK68wgAnfu1/ILlOAIdfr2J4X+UUA7L5EdNoGqxNfQmufRggOKmzw3mSAv98itxNd6BUzPljxa', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAARp6icMnSrO7THkQC0YYx12GE/1D0/GDzbo9sq64KXofooGEC5bR4FOU20gYhe27hIxTzhgR+WSBh2gt7yY4mF', '2015-04-13 13:33:27', '2015-04-13 13:33:27')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAATBj9hvjk4+0Pl/yVzesF3vjbSle1Py4gvFdbvhHybgigd+7TLDEN/VCtaIZRBEJGO2kXVnNhSiwqRvsWuLzsO', '2015-04-13 13:33:27', '2015-04-13 13:33:27')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACTaw04Ak2raceyv22ggmstBQMHIvISvp505bja8XyuEw0Mz6pkbp5rgwfOzrH7AqPnby7g7/v4SydY+7JvzmmC', '2015-04-13 13:38:03', '2015-04-13 13:38:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACx+wBgA/qUTVMeVRMXqO+8d3oRmIr/IbMT5hMHy6vvUpqde0oFtxZn++pfhyTc2FHLHhpraimrHyYgFYB7DL+q', '2015-04-13 13:38:03', '2015-04-13 13:38:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADmuYiuDGN/99BrrRyP4kSAfNThFg7yfgGMdF4jZnJWvmC7dJ4MEAa20UWaBG3/067vkL6OqonFPqnOhl8seas3', '2015-04-13 13:38:03', '2015-04-13 13:38:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADsfyeAnjub7PHsVSh3JzNFgJy5FADyGYrb9xggxqo4qu/RpPXe6RXuSHvqyz3KjgQ7zdGPaF9R+XwMQ80aTST6', '2015-04-13 13:38:03', '2015-04-13 13:38:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAsKZe4yYcR/S7yiLLM8UotCGSjJY1d7YgCuCSy9qstqoc/tb+Kcpyv2vodu5cAk9XJ5nRhrM4Lt4WBHltd9s1G', '2015-04-13 13:38:03', '2015-04-13 13:38:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEAAMO/CPkFB2wu7N8ZKErr+pHNGQnOydbRtVvXuvhT6mKdqH5JUp14zPDUPAkZxX4v6V+Wd3VvN760/C6CV7kG4M', '2015-04-13 13:38:03', '2015-04-13 13:38:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADya1Ns8CMGHZApFWFDLhqhUV2wc76dZ58a2XtbunqLR/y5rtQKsbaQggqGThcrhKNVhqbzZslctf6CXgDlBrMs', '2015-04-13 13:38:03', '2015-04-13 13:38:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEACOGXmEVrGzhyZ6c/5bjdwgpj5e5IXtK8MUF6n7HmDFp3jXan8Yx9XUi53veenGOFC/v+7knOuJc5raPIlwQGVt', '2015-04-13 13:38:03', '2015-04-13 13:38:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACCorEzvt4UK9tBbNq4tYUS5S5ALIyP7F6g75d2gAuU5DRwX9DS7+y00Ee+gb0YXTTOqJMnGyYay+8zmd0qbP4b', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (1.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADgWneHEyLkrAtMpJBPYNQBHdXgWS1oAxs7OhpnSwkf0rz1ZMc0nfZM0eAK0wzVYTi+SSHpjVFrc8kovlw9wd8P', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (17.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACMxikAybybqkJU5ahV2qkAtnDzZkQRHaN7X7qCIXgD9Q0JSxrUSM2OOJ6tmQPrUqZrnZa4YVJtskkl2BzF0ZMW', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAXDtVDTC8q7i++RTC48RnF2/VeUEgmIdK7xdOiKjM689deYhwphcyCTZsdDnJOCFGzG6SInQx82MwdBXBNDI45', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAAyNUL1V3oIoCZj0wcfI4DII5VuzUvBwTpvh+u6UNaoAF2TY68FYYrQ/dpNYmvcBjCTJKMHMfGbKzCt1K+paxOv', '2015-04-13 13:39:58', '2015-04-13 13:39:58')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.6ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACKxSZzCLuRiSbMNTqaT+sMncjhRemlH5ql0SU5TcbgE6zND6DJ1sTJTLs5/MLp6rns35HGpva46UTP8mjMNwTq', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACWZR4/ubPOI1XuekOwrEMEJbk0C9fnn0qybIrrfbG9I1S2m79icWuSYTh1S+lHebHluCVR4hWhZRoexywXyTUx', '2015-04-13 13:39:58', '2015-04-13 13:39:58')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (10.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAChzPZy/VvOXaD4Wl7FDDsiZFkjKa25YdNC87l7HF45WfiBDuYVImnyfuaRSUyVrE7otyqQqjAS8JFeyFNivPM5', '2015-04-13 13:39:58', '2015-04-13 13:39:58')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (13.9ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (13.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (100, 'user_100', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAD9ZynYIlnMqN0SR5hgWO+fOVkE28G9iHWHv8k1oTho/TGrO2mVPJ41JnTfdK4Xc4lf9TCUHVi7+FAwwaKacz+S', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (12.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 100 LIMIT 1
+  [1m[36m (31.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (101, 'user_101', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEACc7jea/OL0sfHVy+2b3SfN6nvS3V6FgPwtA9ppVQpTGSdUNaK6P2lFDB4y68OwPje0bww2LsLG4WnoP1OyQbIq', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 101 LIMIT 1
+  [1m[36m (11.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (102, 'user_102', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAB8Xd3LZLNmvWZ1kst1BcmIpXJQaSX+KfCJnxm1bpXhSCeWNv21quV5sEgPgI+ACVEuHsLmOmvHQWXYmA2c3ry4', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 102 LIMIT 1
+  [1m[36m (1.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (103, 'user_103', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEADiLUGGHCpA/NFeOtD7QRI2OIIezxRwwle34YwYtKh0//lGluqGf10uaDv9IIzQSzlEFNh8FlyxCsckX6eSJ4AH', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (104, 'user_104', '1983/10/04', 2, 1, 1, 1, 'QEVuQwBAEAC0WAir3J6YTfYOcddzGWV9dpwjrILtek0mehJFD0xG2bLeK5zhmW1XNUg7Sft5zokYvzPauwXAR/RqKyhLbNem', '2015-04-26 15:46:03', '2015-04-26 15:46:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (105, 'user_105', '1983/10/04', 1, 1, 1, 'QEVuQwBAEACH/fD+YrstYISWjRvwt6MjUK94LMOmPm+9RbRBDgd2yfiusqSn9MV1aeaFRcpxLtkyLbG/4HmtObm4L55ddAxy', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (106, 'user_106', '1983/10/04', 1, 1, 1, 1, 'QEVuQwBAEAAFWkARL6Dt5x1pLGJNLdQDWUZETirQfMRXP5U8400XZR4qWzzhM1eTu4gpprdfl8PStERbnKQHQRGBZJG/Le3M', '2015-04-26 15:46:03', '2015-04-26 15:46:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`id`, `name`, `birthday`, `gender`, `region_id`, `salary_category_id`, `status`, `encrypted_secret`, `created_at`, `updated_at`) VALUES (107, 'user_107', '1983/10/04', 1, 1, 1, 2, 'QEVuQwBAEAAr2JzpfthLoZpnS0wv1MgnH7RngtpjvWHorBG1MJQREpl1ftRFM952Q/X99o4psEOzI7AaAKg4KJshI31uVbBV', '2015-04-26 15:46:03', '2015-04-26 15:46:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (27.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`  ORDER BY version

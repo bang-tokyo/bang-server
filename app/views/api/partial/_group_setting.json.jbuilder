@@ -1,0 +1,1 @@
+json.extract! group_setting, *[:id, :group_id, :key, :value, :created_at, :updated_at]

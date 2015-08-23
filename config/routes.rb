@@ -5,11 +5,12 @@ Rails.application.routes.draw do
         resources :users, only: [:create, :show]
         get 'users' => 'users#search'
 
-        resources :groups, except: [:new, :edit] do
-          get 'setting' => 'group_setting#show'
-          put 'setting' => 'group_setting#update'
+	get 'groups' => 'groups#search'
+	resources :groups, except: [:index, :new, :edit] do
+	  get 'setting' => 'group_settings#show'
+          put 'setting' => 'group_settings#update'
           resources :group_users, only: [:create, :destroy]
-        end
+        end	
 
         # user_idをパラメータに持ちたくないので自分の情報の
         # 取得、更新用にme_controllerを用意
@@ -20,7 +21,11 @@ Rails.application.routes.draw do
         get 'bang/request/:id' => 'bang#request_bang'
         get 'bang/reply/:id/:status' => 'bang#reply_bang'
         get 'bang/requests' => 'bang#request_list'
-
+       
+        post 'group_bang/request' => 'group_bang#request_bang'
+        post 'group_bang/reply' => 'group_bang#reply_bang'
+        get  'group_bang/requests/:id' => 'group_bang#request_list'
+        
         resources :conversations, only: [:index, :show, :destroy] do
           post 'message' => 'messages#create'
         end
