@@ -7,6 +7,7 @@
 #  name               :string(191)      default(""), not null
 #  birthday           :string(10)       default(""), not null
 #  gender             :integer          default(3), not null
+#  blood_type         :integer          default(0), not null
 #  region_id          :integer          default(0), not null
 #  salary_category_id :integer          default(0), not null
 #  status             :integer          default(0), not null
@@ -84,6 +85,10 @@ class User < ActiveRecord::Base
 
   def self_introduction
     attribute_value('self_introduction')
+  end
+
+  def self_introduction_long
+    attribute_value('self_introduction_long')
   end
 
   private

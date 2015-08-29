@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         put 'me' => 'me#update'
         put 'me/location' => 'me#update_location'
 
+        resources :regions, only: [:index]
+
         get 'bang/request/:id' => 'bang#request_bang'
         get 'bang/reply/:id/:status' => 'bang#reply_bang'
         get 'bang/requests' => 'bang#request_list'
