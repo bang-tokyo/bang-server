@@ -40,6 +40,11 @@ gem 'annotate'
 gem 'activerecord-mysql-awesome'
 gem 'symmetric-encryption'
 gem 'weak_parameters'
+gem 'aws-sdk'
+gem 'dotenv-rails'
+gem 'deep_merge' # https://github.com/railsconfig/rails_config/issues/13
+gem 'rails_config', '~> 0.4.2'
+gem 'rmagick'
 
 # For Application Test
 group :development, :test do

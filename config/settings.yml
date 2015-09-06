@@ -1,0 +1,6 @@
+s3:
+  profile_image:
+    cdn_domain: 's3-ap-northeast-1.amazonaws.com'
+    region: 'ap-northeast-1'
+    bucket: 'bang-dev'
+    key_prefix: <%= `hostname`.strip %>/

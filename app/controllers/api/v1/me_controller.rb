@@ -5,6 +5,11 @@ class Api::V1::MeController < Api::ApplicationController
     string :name
   end
 
+  validates :upload_image do
+    integer :index, required: true
+    file :image
+  end
+
   validates :update_location do
     float :latitude, required: true
     float :longitude, required: true
@@ -17,6 +22,11 @@ class Api::V1::MeController < Api::ApplicationController
   def update
     update_user
     @user = current_user
+  end
+
+  def upload_image
+    user = current_user
+    @user_profile_image = upload_user_profile_image(user, params[:index], params[:image]) if params[:image].present?
   end
 
   def update_location
@@ -35,19 +45,35 @@ class Api::V1::MeController < Api::ApplicationController
 
   def update_user_attribute(key)
     if params[key].present?
-      value = params[key]
-      user_attribute = current_user.user_attributes.by_key(key).first
-      if user_attribute.present?
-        user_attribute.value = value
-        user_attribute.save!
-      else
-        user_attribute = UserAttribute.create!(
-          user_id: current_user.id,
-          key: key,
-          value: value
-        )
-      end
+      update_user_attribute_with_value(key, params[key])
     end
+  end
+
+  def update_user_attribute_with_value(key, value)
+    user_attribute = current_user.user_attributes.by_key(key).first
+    if user_attribute.present?
+      user_attribute.value = value
+      user_attribute.save!
+    else
+      user_attribute = UserAttribute.create!(
+        user_id: current_user.id,
+        key: key,
+        value: value
+      )
+    end
+  end
+
+  def upload_user_profile_image(user, index, image)
+    profile_image_id = user.profile_image_id_by(index)  
+    user_profile_image = profile_image_id != 0 ?
+      UserProfileImage.find_or_create_by(id: profile_image_id) do |upi| upi.user_id = user.id end :
+      UserProfileImage.create!(user_id: user.id)
+    user_profile_image.touch
+
+    Bang::ProfileImageUploader.upload_image_to_s3(image, user_profile_image)
+
+    update_user_attribute_with_value("profile_image_#{index}", user_profile_image.id)
+    return user_profile_image
   end
 
   def update_user_location

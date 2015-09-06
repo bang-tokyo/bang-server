@@ -13,7 +13,13 @@
 class UserAttribute < ActiveRecord::Base
   ACCEPTABLE_KEYS = [
     'self_introduction',
-    'self_introduction_long'
+    'self_introduction_long',
+    'profile_image_0',
+    'profile_image_1',
+    'profile_image_2',
+    'profile_image_3',
+    'profile_image_4',
+    'profile_image_5'
   ]
 
   belongs_to :owner, class_name: 'User', foreign_key: 'user_id'

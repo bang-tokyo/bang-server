@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   has_many :user_attributes
   has_many :user_bang
   has_many :conversation_users
+  has_many :user_profile_images
   # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
   #has_one :user_location
 
@@ -89,6 +90,10 @@ class User < ActiveRecord::Base
 
   def self_introduction_long
     attribute_value('self_introduction_long')
+  end
+
+  def profile_image_id_by(index)
+    attribute_value("profile_image_#{index}").to_i
   end
 
   private
