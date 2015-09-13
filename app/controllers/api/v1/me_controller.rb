@@ -1,8 +1,18 @@
 class Api::V1::MeController < Api::ApplicationController
 
   validates :update do
-    string :gender
     string :name
+    string :gender
+    string :self_introduction
+    string :self_introduction_long
+    integer :blood_type
+    integer :region_id
+    integer :profile_image_0
+    integer :profile_image_1
+    integer :profile_image_2
+    integer :profile_image_3
+    integer :profile_image_4
+    integer :profile_image_5
   end
 
   validates :upload_image do
@@ -36,11 +46,21 @@ class Api::V1::MeController < Api::ApplicationController
   private
 
   def update_user
+    # modify user
     user = current_user.tap do |u|
       u.gender = User.gender_from_string(params[:gender]) if params[:gender].present?
       u.name = params[:name] if params[:name].present?
+      u.blood_type = params[:blood_type] if params[:blood_type].present?
+      u.region_id = params[:region_id] if params[:region_id].present?
     end
+    user.save
+
+    # modify user attribute
     update_user_attribute('self_introduction')
+    update_user_attribute('self_introduction_long')
+    for i in 0..5 do
+      update_user_attribute("profile_image_#{i}")
+    end
   end
 
   def update_user_attribute(key)

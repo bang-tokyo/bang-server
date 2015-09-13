@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   SEPARATOR = '-'
 
   enum gender: {male: 1, female: 2, transgender: 3}
+  enum blood_type: {unknown: 0, a: 1, b: 2, o: 3, ab: 4}
   enum status: {active: 0, banned: 1}
 
   has_many :devices
@@ -80,8 +81,21 @@ class User < ActiveRecord::Base
     self.class.genders[gender]
   end
 
+  def blood_type_value
+    self.class.blood_types[blood_type]
+  end
+
   def status_value
     self.class.statuses[status]
+  end
+
+  def region_name
+    name = ""
+    region = Region.find_by(id: self.region_id)
+    if region.present?
+      name = region.name
+    end
+    return name
   end
 
   def self_introduction
@@ -94,6 +108,18 @@ class User < ActiveRecord::Base
 
   def profile_image_id_by(index)
     attribute_value("profile_image_#{index}").to_i
+  end
+
+  def prifile_image_path_by(index)
+    id = profile_image_id_by(index)
+    user_profile_image = self.user_profile_images.find_by(id: id)
+    path = ""
+    if user_profile_image.present?
+      path = user_profile_image.image_path()
+    elsif index == 0
+      path = "https://graph.facebook.com/#{self.facebook_id}/picture?width=320&height=320"
+    end
+    return path
   end
 
   private

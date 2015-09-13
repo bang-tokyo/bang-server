@@ -25,7 +25,8 @@ class UserProfileImage < ActiveRecord::Base
   def image_path
     timestamp = updated_at.to_i
     bucket = Settings[:s3][:profile_image][:bucket]
-    "#{bucket}/#{image_s3_key_name}?#{timestamp}"
+    cdn_domain = Settings[:s3][:profile_image][:cdn_domain]
+    "https://#{cdn_domain}/#{bucket}/#{image_s3_key_name}?#{timestamp}"
   end
 
   private
