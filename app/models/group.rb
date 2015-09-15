@@ -25,11 +25,11 @@ class Group < ActiveRecord::Base
             on: :create
 
   def status_value
-    self.statuses[status]
+    self.class.statuses[status]
   end
 
   def active?
     status == self.statuses[:active]
   end
-
+  
 end

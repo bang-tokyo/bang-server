@@ -25,8 +25,8 @@ class GroupUser < ActiveRecord::Base
             on: :create
 
   def status_value
-      self.statuses[status]
-    end
+    self.class.statuses[status]
+  end
 
   def active?
     status == self.statuses[:active]
