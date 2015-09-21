@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         # 取得、更新用にme_controllerを用意
         get 'me' => 'me#show'
         put 'me' => 'me#update'
+        post 'me/image/' => 'me#upload_image'
         put 'me/location' => 'me#update_location'
 
         resources :regions, only: [:index]

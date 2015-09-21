@@ -17,3 +17,8 @@ app/log/*
 .idea
 .secret
 .rspec
+.env
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

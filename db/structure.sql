@@ -268,6 +268,24 @@ CREATE TABLE `user_locations` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `user_profile_images`
+--
+
+DROP TABLE IF EXISTS `user_profile_images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_profile_images` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `code` varchar(10) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_user_profile_images_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `users`
 --
 
@@ -300,6 +318,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-08-23 18:29:52
+-- Dump completed on 2015-09-03 23:41:34
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
