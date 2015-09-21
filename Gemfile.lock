@@ -88,9 +88,14 @@ GEM
     colorize (0.7.7)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    deep_merge (1.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.4.0)
     factory_girl (4.5.0)
@@ -188,6 +193,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_config (0.4.2)
+      activesupport (>= 3.0)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -202,6 +209,7 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
+    rmagick (2.15.4)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -295,6 +303,8 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-unicorn
   coffee-rails (~> 4.1.0)
+  deep_merge
+  dotenv-rails
   execjs
   factory_girl_rails
   guard-rspec
@@ -307,7 +317,9 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.2.1)
+  rails_config (~> 0.4.2)
   rb-readline (~> 0.4.2)
+  rmagick
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
@@ -320,3 +332,6 @@ DEPENDENCIES
   weak_parameters
   web-console (~> 2.0)
   whenever
+
+BUNDLED WITH
+   1.10.5

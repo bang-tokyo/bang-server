@@ -4,6 +4,7 @@ class Init < ActiveRecord::Migration
     create_users
     create_user_attributes
     create_user_locations
+    create_user_profile_images
     create_devices
     create_groups
     create_group_users
@@ -54,6 +55,16 @@ class Init < ActiveRecord::Migration
 
     add_index :user_locations, :user_id, unique: true
     add_index :user_locations, [:latitude, :longitude, :updated_at]
+  end
+
+  def create_user_profile_images
+    create_table :user_profile_images, id: :bigint, unsigned: true do |t|
+      t.bigint :user_id, unsigned: true, null: false
+      t.string :code, limit: 10, null: false
+      t.timestamps null: false
+    end
+
+    add_index :user_profile_images, :user_id
   end
 
   def create_devices
