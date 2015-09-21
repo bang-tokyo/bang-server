@@ -1,3 +1,6 @@
+bang:
+  profile_image:
+    max_num: 5
 s3:
   profile_image:
     cdn_domain: 's3-ap-northeast-1.amazonaws.com'

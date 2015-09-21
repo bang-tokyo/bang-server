@@ -106,6 +106,10 @@ class User < ActiveRecord::Base
     attribute_value('self_introduction_long')
   end
 
+  def prifile_image_max_num
+    Settings[:bang][:profile_image][:max_num]
+  end
+
   def profile_image_id_by(index)
     attribute_value("profile_image_#{index}").to_i
   end

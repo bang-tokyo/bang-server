@@ -58,7 +58,7 @@ class Api::V1::MeController < Api::ApplicationController
     # modify user attribute
     update_user_attribute('self_introduction')
     update_user_attribute('self_introduction_long')
-    for i in 0..5 do
+    for i in 0..Settings[:bang][:profile_image][:max_num] do
       update_user_attribute("profile_image_#{i}")
     end
   end
