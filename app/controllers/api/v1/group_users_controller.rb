@@ -17,8 +17,8 @@ class Api::V1::GroupUsersController < Api::ApplicationController
     user_id = params[:user_id]
 
     #ユーザーのチェック
-    user = User.find_by(id: user_id)
-    raise Bang::Error::ValidationError.new unless user.present?
+    @user = User.find_by(id: user_id)
+    raise Bang::Error::ValidationError.new unless @user.present?
 
     #グループ作成
     @group_user = GroupUser.create!(

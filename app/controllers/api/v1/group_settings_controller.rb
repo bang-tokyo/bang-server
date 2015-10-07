@@ -15,9 +15,9 @@ class Api::V1::GroupSettingsController < Api::ApplicationController
     group_id = params[:group_id]
 
     @group = Group.find_by!(id: group_id)
-    group_setting = GroupSetting.find_by!(group_id: group_id)
+    @group_setting = GroupSetting.find_by!(group_id: group_id)
 
-    @group_setting = group_setting.tap do |setting|
+    @group_setting = @group_setting.tap do |setting|
       setting.key = params[:key]
       setting.value = params[:value]
     end

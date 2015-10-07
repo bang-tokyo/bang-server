@@ -27,9 +27,9 @@ Rails.application.routes.draw do
         get 'bang/reply/:id/:status' => 'bang#reply_bang'
         get 'bang/requests' => 'bang#request_list'
        
-        post 'group_bang/request' => 'group_bang#request_bang'
-        post 'group_bang/reply' => 'group_bang#reply_bang'
-        get  'group_bang/requests/:id' => 'group_bang#request_list'
+        post 'group_bang/request' => 'group_bangs#request_bang'
+        post 'group_bang/reply' => 'group_bangs#reply_bang'
+        get  'group_bang/requests/:id' => 'group_bangs#request_list'
         
         resources :conversations, only: [:index, :show, :destroy] do
           post 'message' => 'messages#create'

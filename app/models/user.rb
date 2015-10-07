@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
   has_many :user_bang
   has_many :conversation_users
   has_many :user_profile_images
-  # NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
+  has_one  :group_users
+  
+# NOTE: - user_locationはあくまで検索用なのでアソシエーションしない
   #has_one :user_location
 
   attr_encrypted :secret, random_iv: true
