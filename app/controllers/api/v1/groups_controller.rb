@@ -88,16 +88,11 @@ class Api::V1::GroupsController < Api::ApplicationController
 
   def my
     user_id = current_user.id
-    groups = Group.includes(:group_users)
+    groups = Group.all
     #自分が所属するグループ(オーナーもしくはメンバー)
     @groups = groups.select do |group|
-      group.owner_user_id == user_id || group.group_users.map{|group_user| group_user.user_id}.include?(user_id)
-    end
-    
-    @groups.each do |group|
-      group.group_users.each do |group_user|
-        group_user.user = User.find_by(id: group_user.user_id)
-      end
+      group.owner_user_id == user_id || 
+      group.group_users.map{ |group_user| group_user.user_id }.include?(user_id)
     end
   end
 
@@ -105,40 +100,17 @@ class Api::V1::GroupsController < Api::ApplicationController
     limit = params[:limit] || 20
     offset = params[:offset] || 0
 
-    #group_scope = Group.where('owner_user_id = ?', current_user.id)
-    #group_where = group_scope.arel.constraints.reduce(:and)
-    #group_bind = group_scope.bind_values
-    #group_user_scope = GroupUser.where(user_id: current_user.id)
-    #group_user_where = group_user_scope.arel.constraints.reduce(:and)
-    #group_user_bind = group_user_scope.bind_values
- 
-    #exclusion_group_ids = Group.eager_load(:group_users).where(group_where.or group_user_where).tap {|sc| sc.bind_values = group_bind + group_user_bind }.map { |g| g.id }
-
-    ##自分の所属するグループが既にbang済みの場合は除く
-    #exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
-    #@groups = Group.where.not(id: exclusion_group_ids.uniq).limit(limit) 
-
-    #@groups.each do |group|
-    #  group.group_users = GroupUser.find_by(group_id: group.id)
-    #end
     user_id = current_user.id
-    groups = Group.includes(:group_users)
-    #自分が所属しているグループ
-    exclusion_groups = groups.select do |group|
-       group.owner_user_id == user_id || group.group_users.map{|group_user| group_user.user_id}.include?(user_id)
-    end
-
-    exclusion_group_ids = exclusion_groups.map { |g| g.id }
-  
+    groups = Group.all
+    #自分が所属しているグループids
+    exclusion_group_ids = groups.select { |group|
+       group.owner_user_id == user_id || 
+       group.group_users.map{ |group_user| group_user.user_id}.include?(user_id) 
+    }.map{ |group| group.id }
+    
     #自分の所属するグループが既にbang済みの場合は除く
     exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
-    @groups = Group.where.not(id: exclusion_group_ids.uniq).limit(limit).offset(offset)
-
-    @groups.each do |group|
-       group.group_users.each do |group_user|
-          group_user.user = User.find_by(id: group_user.user_id)
-       end
-    end
+    @groups = groups.where.not(id: exclusion_group_ids.uniq).limit(limit).offset(offset)
   end
 
   def destroy
