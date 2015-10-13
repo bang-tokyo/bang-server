@@ -88,7 +88,6 @@ class Init < ActiveRecord::Migration
 
   def create_groups
       create_table :groups, id: :bigint, unsigned: true do |t|
-          t.bigint :owner_user_id, unsigned: true, null: false
           t.string :name, limit: 100, null: false, default: ""
           t.text   :memo
           t.integer :region_id, limit: 3, null: false, default: 0
@@ -101,6 +100,7 @@ class Init < ActiveRecord::Migration
       create_table :group_users, id: :bigint, unsigned: true do |t|
           t.bigint :group_id, unsigned: true, null: false
           t.bigint :user_id, unsigned: true, null: false
+          t.integer :owner_flg, limit: 3, null: false, default: 0
           t.integer :status, limit: 3, null: false, default: 0
           t.timestamps null: false
       end

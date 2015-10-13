@@ -3,7 +3,6 @@
 # Table name: groups
 #
 #  id            :integer          not null, primary key
-#  owner_user_id :integer          not null
 #  name          :string(100)      default(""), not null
 #  memo          :text(65535)
 #  region_id     :integer          default(0), not null

@@ -36,31 +36,23 @@ class Api::V1::GroupsController < Api::ApplicationController
 
     #グループ作成
     @group = Group.create!(
-      owner_user_id: owner_user_id,
       name: name,
       memo: params[:memo],
       region_id: params[:region_id]
     )
 
+    #グループユーザー作成（オーナー）
+    group_user = GroupUser.create!(
+      owner_flg: 1,
+      group_id: @group.id,
+      user_id: owner_user_id,
+      status: 1
+    )
+    @group.group_users.push(group_user)
+
     #グループ設定作成
-    @group_setting = GroupSetting.create(group_id: @group.id)
+    @group.group_setting = GroupSetting.create!(group_id: @group.id)
 
-    unless @group_setting.nil?
-      @group.group_setting = @group_setting
-    end
-
-    #グループユーザー作成
-    user_ids = params[:user_ids]
-
-    #user_idsからuser modelを取得
-    @users = User.where(id: user_ids)
-    @users.each{|user|
-      #グループユーザー作成
-      @group_user = GroupUser.create!(
-        group_id: group.id,
-        user_id: user.id
-      )
-    }
  end
 
  def update
@@ -91,8 +83,9 @@ class Api::V1::GroupsController < Api::ApplicationController
     groups = Group.all
     #自分が所属するグループ(オーナーもしくはメンバー)
     @groups = groups.select do |group|
-      group.owner_user_id == user_id || 
-      group.group_users.map{ |group_user| group_user.user_id }.include?(user_id)
+      group.group_users.map { |group_user|
+        group_user.user_id
+      }.include?(user_id)
     end
   end
 
@@ -104,12 +97,16 @@ class Api::V1::GroupsController < Api::ApplicationController
     groups = Group.all
     #自分が所属しているグループids
     exclusion_group_ids = groups.select { |group|
-       group.owner_user_id == user_id || 
-       group.group_users.map{ |group_user| group_user.user_id}.include?(user_id) 
+       group.group_users.map { |group_user|
+         group_user.user_id
+       }.include?(user_id) 
     }.map{ |group| group.id }
     
     #自分の所属するグループが既にbang済みの場合は除く
-    exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
+    exclusion_group_ids.push(
+      GroupBang.where(from_group_id: exclusion_group_ids).map { |gb|
+        gb.group_id
+      })
     @groups = groups.where.not(id: exclusion_group_ids.uniq).limit(limit).offset(offset)
   end
 

@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  group_id   :integer          not null
+#  owner_flg  :int              default(0), not null
 #  user_id    :integer          not null
 #  status     :integer          default(0), not null
 #  created_at :datetime         not null
