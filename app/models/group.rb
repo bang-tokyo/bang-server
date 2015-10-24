@@ -19,7 +19,7 @@ class Group < ActiveRecord::Base
   has_many :group_bangs, class_name: 'GroupBang'
   has_one :group_setting, class_name: 'GroupSetting', dependent: :destroy
 
-  validates :owner_user_id,
+  validates :name,
             presence: true,
             on: :create
 

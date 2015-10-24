@@ -1,7 +1,6 @@
 class Api::V1::GroupsController < Api::ApplicationController
 
   validates :create do
-    integer :owner_user_id, required: true
     string :name, required: true
     string :user_ids
     string :memo
@@ -26,21 +25,22 @@ class Api::V1::GroupsController < Api::ApplicationController
 
   def create
 
-    owner_user_id = params[:owner_user_id]
+    owner_user_id = current_user.id
     name = params[:name]
+    region_id = params[:region_id]
+    memo = params[:memo]
 
     #ユーザーのチェック
     @user = User.find_by!(id: owner_user_id)
     raise Bang::Error::ValidationError.new unless @user.present?
-    raise Bang::Error::ValidationError.new unless name.present?
 
     #グループ作成
     @group = Group.create!(
       name: name,
-      memo: params[:memo],
-      region_id: params[:region_id]
+      memo: memo,
+      region_id: region_id
     )
-
+    
     #グループユーザー作成（オーナー）
     group_user = GroupUser.create!(
       owner_flg: 1,
