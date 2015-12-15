@@ -23,6 +23,11 @@ class Api::V1::GroupsController < Api::ApplicationController
     integer :offset
   end
 
+  validates :invite do
+    string :facebook_id
+    integer :group_id
+  end
+
   def create
 
     owner_user_id = current_user.id
@@ -38,7 +43,8 @@ class Api::V1::GroupsController < Api::ApplicationController
     @group = Group.create!(
       name: name,
       memo: memo,
-      region_id: region_id
+      region_id: region_id,
+      status: 1
     )
     
     #グループユーザー作成（オーナー）
@@ -109,6 +115,26 @@ class Api::V1::GroupsController < Api::ApplicationController
       })
     @groups = groups.where.not(id: exclusion_group_ids.uniq).limit(limit).offset(offset)
   end
+
+  def invite 
+    facebook_id = params[:facebook_id]
+    group_id = params[:group_id]
+
+    #facebookIdからuserIdを取得する
+    @user = User.find_by!(facebook_id: facebook_id)
+    raise Bang::Error::ValidationError.new unless @user.present?
+    
+    #登録対象グループを取得
+    @group = Group.find_by!(id: group_id)
+    raise Bang::Error::ValidationError.new unless @group.present?
+
+    @group_user = GroupUser.create!(
+      group_id: @group.id,
+      user_id: @user.id,
+      status: 2
+    )
+  end
+
 
   def destroy
     #物理削除にするか検討

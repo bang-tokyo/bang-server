@@ -13,7 +13,7 @@
 
 class GroupUser < ActiveRecord::Base
 
-  enum status: {inactive: 0, active: 1}
+  enum status: {inactive: 0, active: 1, invite: 2}
 
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
   belongs_to :group, class_name: 'Group', foreign_key: 'group_id'

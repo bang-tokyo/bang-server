@@ -5,11 +5,12 @@ Rails.application.routes.draw do
         resources :users, only: [:create, :show]
         get 'users' => 'users#search'
 
-	get 'groups/search' => 'groups#search'
-	get 'groups/my'     => 'groups#my'
+      	get 'groups/search' => 'groups#search'
+      	get 'groups/my'     => 'groups#my'
+        post 'groups/invite' => 'groups#invite'
 
-	resources :groups, except: [:index, :new, :edit] do
-	  get 'setting' => 'group_settings#show'
+      	resources :groups, except: [:index, :new, :edit] do
+	        get 'setting' => 'group_settings#show'
           put 'setting' => 'group_settings#update'
           resources :group_users, only: [:create, :destroy]
         end	
