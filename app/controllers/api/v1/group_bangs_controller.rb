@@ -1,4 +1,4 @@
-class Api::V1::GroupBangController < Api::ApplicationController
+class Api::V1::GroupBangsController < Api::ApplicationController
   include ConversationManager
 
   validates :request_bang do
@@ -27,18 +27,17 @@ class Api::V1::GroupBangController < Api::ApplicationController
   def reply_bang
     group_bang_id = params[:group_bang_id]
     status  = params[:status]
-    group_bang = GroupBang.find_by(id: group_bang_id)
+    @group_bang = GroupBang.find_by(id: group_bang_id)
     raise Bang::Error::InvalidGroupBang\
       if !group_bang.present?\
       || group_bang.group_id != from_group_id\
       || group_bang.has_replied?
 
-    group_bang.status = GroupBang.status_from_string(status)
-    if group_bang.accept?
+    @group_bang.status = GroupBang.status_from_string(status)
+    if @group_bang.accept?
       create_conversation [group_bang.group_id, group_bang.from_group_id], :group_bang
     end
-    group_bang.save!
-    @group_bang = group_bang
+    @group_bang.save!
   end
 
   def request_list

@@ -67,7 +67,6 @@ group :development, :test do
 end
 
 gem 'unicorn'
-gem 'aws-sdk'
 gem 'whenever'
 gem 'libv8', '3.16.14.3'
 gem 'execjs'

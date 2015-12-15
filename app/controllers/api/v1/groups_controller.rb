@@ -1,7 +1,6 @@
 class Api::V1::GroupsController < Api::ApplicationController
 
   validates :create do
-    integer :owner_user_id, required: true
     string :name, required: true
     string :user_ids
     string :memo
@@ -24,49 +23,48 @@ class Api::V1::GroupsController < Api::ApplicationController
     integer :offset
   end
 
+  validates :invite do
+    string :facebook_id
+    integer :group_id
+  end
+
   def create
 
-    owner_user_id = params[:owner_user_id]
+    owner_user_id = current_user.id
     name = params[:name]
+    region_id = params[:region_id]
+    memo = params[:memo]
 
     #ユーザーのチェック
-    user = User.find_by!(id: owner_user_id)
-    raise Bang::Error::ValidationError.new unless user.present?
-    raise Bang::Error::ValidationError.new unless name.present?
+    @user = User.find_by!(id: owner_user_id)
+    raise Bang::Error::ValidationError.new unless @user.present?
 
     #グループ作成
     @group = Group.create!(
-      owner_user_id: owner_user_id,
       name: name,
-      memo: params[:memo],
-      region_id: params[:region_id]
+      memo: memo,
+      region_id: region_id,
+      status: 1
     )
+    
+    #グループユーザー作成（オーナー）
+    group_user = GroupUser.create!(
+      owner_flg: 1,
+      group_id: @group.id,
+      user_id: owner_user_id,
+      status: 1
+    )
+    @group.group_users.push(group_user)
 
     #グループ設定作成
-    @group_setting = GroupSetting.create(group_id: @group.id)
+    @group.group_setting = GroupSetting.create!(group_id: @group.id)
 
-    unless @group_setting.nil?
-      @group.group_setting = @group_setting
-    end
-
-    #グループユーザー作成
-    user_ids = params[:user_ids]
-
-    #user_idsからuser modelを取得
-    users = User.where(id: user_ids)
-    users.each{|user|
-      #グループユーザー作成
-      @group_user = GroupUser.create!(
-        group_id: @group.id,
-        user_id: user.id
-      )
-    }
  end
 
  def update
 
-    group = Group.find_by!(id: params[:id])
-    raise Bang::Error::ValidationError.new unless group.present?
+    @group = Group.find_by!(id: params[:id])
+    raise Bang::Error::ValidationError.new unless @group.present?
 
     @group = group.tap do |g|
       g.name = params[:name] if params[:name].present?
@@ -83,30 +81,60 @@ class Api::V1::GroupsController < Api::ApplicationController
       render_not_found
       return
     end
+    @groups = [@group]
+  end
+
+  def my
+    user_id = current_user.id
+    groups = Group.all
+    #自分が所属するグループ(オーナーもしくはメンバー)
+    @groups = groups.select do |group|
+      group.group_users.map { |group_user|
+        group_user.user_id
+      }.include?(user_id)
+    end
   end
 
   def search
     limit = params[:limit] || 20
     offset = params[:offset] || 0
 
-    group_scope = Group.where('owner_user_id = ?', current_user.id)
-    group_where = group_scope.arel.constraints.reduce(:and)
-    group_bind = group_scope.bind_values
-    group_bang_scope = GroupUser.where(user_id: current_user.id)
-    group_bang_where = group_bang_scope.arel.constraints.reduce(:and)
-    group_bang_bind = group_bang_scope.bind_values
- 
-    exclusion_group_ids = Group.eager_load(:group_users).where(group_where.or group_bang_where).tap {|sc| sc.bind_values = group_bind + group_bang_bind }.map { |g| g.id }
-
+    user_id = current_user.id
+    groups = Group.all
+    #自分が所属しているグループids
+    exclusion_group_ids = groups.select { |group|
+       group.group_users.map { |group_user|
+         group_user.user_id
+       }.include?(user_id) 
+    }.map{ |group| group.id }
+    
     #自分の所属するグループが既にbang済みの場合は除く
-    exclusion_group_ids.push(GroupBang.where(from_group_id: exclusion_group_ids).map { |gb| gb.group_id })
-    @groups = Group.where.not(id: exclusion_group_ids.uniq).limit(limit) 
-
-    @groups.each do |group|
-      group.group_users = GroupUser.where(group_id: group.id)
-    end
-
+    exclusion_group_ids.push(
+      GroupBang.where(from_group_id: exclusion_group_ids).map { |gb|
+        gb.group_id
+      })
+    @groups = groups.where.not(id: exclusion_group_ids.uniq).limit(limit).offset(offset)
   end
+
+  def invite 
+    facebook_id = params[:facebook_id]
+    group_id = params[:group_id]
+
+    #facebookIdからuserIdを取得する
+    @user = User.find_by!(facebook_id: facebook_id)
+    raise Bang::Error::ValidationError.new unless @user.present?
+    
+    #登録対象グループを取得
+    @group = Group.find_by!(id: group_id)
+    raise Bang::Error::ValidationError.new unless @group.present?
+
+    @group_user = GroupUser.create!(
+      group_id: @group.id,
+      user_id: @user.id,
+      status: 2
+    )
+  end
+
 
   def destroy
     #物理削除にするか検討

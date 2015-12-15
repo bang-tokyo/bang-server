@@ -130,6 +130,7 @@ CREATE TABLE `group_users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `group_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL,
+  `owner_flg` mediumint(9) NOT NULL DEFAULT '0',
   `status` mediumint(9) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -146,7 +147,6 @@ DROP TABLE IF EXISTS `groups`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groups` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `owner_user_id` bigint(20) unsigned NOT NULL,
   `name` varchar(100) NOT NULL DEFAULT '',
   `memo` text,
   `region_id` mediumint(9) NOT NULL DEFAULT '0',
@@ -318,6 +318,6 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-03 23:41:34
+-- Dump completed on 2015-10-13 22:15:33
 INSERT INTO schema_migrations (version) VALUES ('20150406041827');
 
